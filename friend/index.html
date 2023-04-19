@@ -22,7 +22,7 @@
 
   
 
-  <title>samba服务配置 | Hexo</title>
+  <title>Hexo</title>
 
   
 
@@ -43,7 +43,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container post">
+<header class="header-container">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -97,123 +97,38 @@
 
   
   
-    <div class="header-content">
-      <div class="post-text layout-block">
-        <div class="layout-margin">
-          <h1 class="title-wrap">samba服务配置</h1>
-          <h2 class="title-sub-wrap">
-            <strong>John Doe</strong>
-            <span>发布于</span>
-            <time  class="article-date" datetime="2023-04-18T10:38:52.000Z" itemprop="datePublished">2023-04-18</time>
-          </h2>
-          <ul class="wrap-list dark">
-  
-</ul>
-          <ul class="wrap-list dark">
-  
-</ul>
-        </div>
-      </div>
-    </div>
-  
 
   
+  
+    <div class="header-content">
+      <div class="post-text layout-block layout-padding">
+        <h1 class="title-wrap"></h1>
+        
+      </div>
+    </div>
   
   
 </header>
 
-    <!-- 文章 -->
+    <!-- 分页(其他自定义页面) -->
 
-<!-- 文章内容 -->
+<!-- 自定义页面 -->
+
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
-      
-      
-      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="8-2配置SAMBA服务器"><a href="#8-2配置SAMBA服务器" class="headerlink" title="8.2配置SAMBA服务器"></a>8.2配置SAMBA服务器</h2><p>user级的SAMBA服务器是SAMBA服务器的默认级别，除了配置&#x2F;etc&#x2F;samba&#x2F;smb.conf主配置文件之外，还要配置用户信息</p>
-<p>1.使用yum安装smb服务</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps1.jpg" alt="img"> </p>
-<p>2.配置samba服务配置文件 vim &#x2F;etc&#x2F;samba&#x2F;smb.conf</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps2.jpg" alt="img"> </p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps3.jpg" alt="img"> </p>
-<p>path：文件路径</p>
-<p>browseable：共享目录浏览权限</p>
-<p>Writable：共享目录写权限</p>
-<p>Valid user：设置允许访问共享目录的用户</p>
-<p>3.创建相应目录</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps4.jpg" alt="img"> </p>
-<p>4.修改文件权限</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps5.jpg" alt="img"> </p>
-<p>5.创建用户并设置为samba用户</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps6.jpg" alt="img"> </p>
-<p>6.使用testparm检查配置文件</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps7.jpg" alt="img"> </p>
-<p>7.重启samba服务</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps8.jpg" alt="img"> </p>
-<p>8.关闭防火墙</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps9.jpg" alt="img"> </p>
-<p>9.关闭SELinux使其失效</p>
-<p>先setenforce 0</p>
-<p>临时关闭</p>
-<p>再进&#x2F;etc&#x2F;selinux&#x2F;config更改配置文<img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps10.jpg" alt="img">件永久关闭</p>
-<p>disabled:关闭</p>
-<p>10.测试samba服务 windows10</p>
-<p>打开运行，输入\samba服务器IP地址，登录用samba用户和口令</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps11.jpg" alt="img"> </p>
+        <p>友链</p>
+<p><img src="/index/kali1.png" alt="img"></p>
 
       </section>
 
       
       
-        <nav class="article-nav">
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
+
       
-        <a href="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">通过Linux访问samba共享资源</h2>
-        </a>
       
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/1970/01/01/%E4%BE%8B%E5%AD%90/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">test</h2>
-        </a>
-      
-      <div class="card-text--row">Older</div>
-    </div>
-  </article>
-</div>
-          
-        </nav>
-      
-
-      <section class="page-message-container layout-padding">
-        
-
-
-  
-  
-
-  
-  
-
-
-      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -250,8 +165,6 @@
     </div>
   </div>
 </section>
-
-      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -297,6 +210,7 @@
     </div>
   </article>
 </div>
+
 
     <!-- footer container -->
 <footer id="footer" class="footer">

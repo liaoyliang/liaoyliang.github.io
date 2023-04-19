@@ -22,7 +22,7 @@
 
   
 
-  <title>samba服务配置 | Hexo</title>
+  <title>test | Hexo</title>
 
   
 
@@ -100,11 +100,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">samba服务配置</h1>
+          <h1 class="title-wrap">test</h1>
           <h2 class="title-sub-wrap">
             <strong>John Doe</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-04-18T10:38:52.000Z" itemprop="datePublished">2023-04-18</time>
+            <time  class="article-date" datetime="2023-04-19T10:31:52.000Z" itemprop="datePublished">2023-04-19</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -133,36 +133,77 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="8-2配置SAMBA服务器"><a href="#8-2配置SAMBA服务器" class="headerlink" title="8.2配置SAMBA服务器"></a>8.2配置SAMBA服务器</h2><p>user级的SAMBA服务器是SAMBA服务器的默认级别，除了配置&#x2F;etc&#x2F;samba&#x2F;smb.conf主配置文件之外，还要配置用户信息</p>
-<p>1.使用yum安装smb服务</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps1.jpg" alt="img"> </p>
-<p>2.配置samba服务配置文件 vim &#x2F;etc&#x2F;samba&#x2F;smb.conf</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps2.jpg" alt="img"> </p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps3.jpg" alt="img"> </p>
-<p>path：文件路径</p>
-<p>browseable：共享目录浏览权限</p>
-<p>Writable：共享目录写权限</p>
-<p>Valid user：设置允许访问共享目录的用户</p>
-<p>3.创建相应目录</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps4.jpg" alt="img"> </p>
-<p>4.修改文件权限</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps5.jpg" alt="img"> </p>
-<p>5.创建用户并设置为samba用户</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps6.jpg" alt="img"> </p>
-<p>6.使用testparm检查配置文件</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps7.jpg" alt="img"> </p>
-<p>7.重启samba服务</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps8.jpg" alt="img"> </p>
-<p>8.关闭防火墙</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps9.jpg" alt="img"> </p>
-<p>9.关闭SELinux使其失效</p>
-<p>先setenforce 0</p>
-<p>临时关闭</p>
-<p>再进&#x2F;etc&#x2F;selinux&#x2F;config更改配置文<img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps10.jpg" alt="img">件永久关闭</p>
-<p>disabled:关闭</p>
-<p>10.测试samba服务 windows10</p>
-<p>打开运行，输入\samba服务器IP地址，登录用samba用户和口令</p>
-<p><img src="/2023/04/18/linux/samba%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/wps11.jpg" alt="img"> </p>
+        <ol>
+<li>网络（计算机网络）的概念</li>
+</ol>
+<p>由许许多多不同的网络设备构建而成的网络</p>
+<ol start="2">
+<li>HUB（集线器），总线型设备，</li>
+</ol>
+<p>缺点：存在数据上通讯上冲突，存在数据交换上的瓶颈，如果总线任何一个地方出现问题，整个网络会瘫痪，如果有一个节点正在通讯，另外的节点只能等待</p>
+<ol start="3">
+<li>Switch（交换机）</li>
+</ol>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps1.jpg" alt="img"> </p>
+<p>功能：作为网络终端用户的接入</p>
+<p>交换机每个端口都是独立的，端口和端口之间不会抢带宽（不会抢网速），不会造成冲突</p>
+<ol start="4">
+<li>广播、单播、组播</li>
+</ol>
+<p>广播：在同个广播域（网段）内都能收到广播</p>
+<p>广播缺点：耗费CPU等资源，造成网络带宽浪费，网络资源的损耗</p>
+<p>单播：点对点的传播</p>
+<p>组播：人为 控制数据流的流向</p>
+<p>5.路由器（Router）</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps2.jpg" alt="img"> </p>
+<p>功能：支持路由（去往某个目的地的路径）协议</p>
+<p>收到数据包进行数据转发，维护路由条目、路由表</p>
+<p>广域网链路支持</p>
+<p> 寻址、路径选择（根据路由表）、数据转发、广播控制、流量过滤和管控、WAN连接广域网</p>
+<p>家用路由器接口示意图：</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps3.jpg" alt="img"> </p>
+<p>LAN：内网接口  WAN：广域网接口 </p>
+<p>6.OSI模型</p>
+<p>分为七层，由下到上分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps4.jpg" alt="img"> </p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps5.jpg" alt="img"> </p>
+<p>应用层：</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps6.jpg" alt="img"> </p>
+<p>表示层：</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps7.jpg" alt="img"> </p>
+<p>会话层：</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps8.jpg" alt="img"> </p>
+<p>下四层负责传输任务</p>
+<p>传输层：</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps9.jpg" alt="img"> </p>
+<p>网络层：</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps10.jpg" alt="img"> </p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps11.jpg" alt="img"> </p>
+<p>寻址：寻找IP地址</p>
+<p>路由：选最优先的路</p>
+<p>路由只关心网络号</p>
+<p>路由器用于连接两个不同的网段和网络</p>
+<p>连接广域网的设备被称为出口设备</p>
+<p>IP地址的组成：网络号+主机号</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps12.jpg" alt="img"> </p>
+<p>数据链路层（交换机工作于此层）</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps13.jpg" alt="img"> </p>
+<p>MAC：物理地址、硬件地址(MAC地址会被烧录到硬件上，如网卡）</p>
+<p>MAC地址全球唯一，以十六进制数来标识48位的地址，用于局域网内的寻址</p>
+<p>IPV4：别名逻辑地址，进行逻辑寻址时的参考对象，网段之间考虑IP，局域网内部考虑MAC，路由器的每个端口都有一个MAC</p>
+<p>IP可变，MAC不可变</p>
+<p>交换机：整个交换机就是一个广播域，每个端口都会收到广播，每个端口都是一个独立冲突域，与其他端口不会互相冲突</p>
+<p>物理层（HUB集线器工作于此层）</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps14.jpg" alt="img"> </p>
+<p>负责将上层数据帧转换成101001</p>
+<p>物理层标准规定了信号、连接器和电缆要求</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps15.jpg" alt="img"> </p>
+<p>水晶头接口：RJ45</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps16.jpg" alt="img"> </p>
+<p>总结：</p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps17.jpg" alt="img"> </p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps18.jpg" alt="img"> </p>
+<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps19.jpg" alt="img"> </p>
 
       </section>
 
@@ -175,8 +216,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">通过Linux访问samba共享资源</h2>
+        <a href="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">NFS配置</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -190,8 +231,8 @@
     
     <div class="card-text">
       
-        <a href="/1970/01/01/%E4%BE%8B%E5%AD%90/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">test</h2>
+        <a href="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">通过Linux访问samba共享资源</h2>
         </a>
       
       <div class="card-text--row">Older</div>
