@@ -22,7 +22,7 @@
 
   
 
-  <title>红茶三杯（1-2） | Hexo</title>
+  <title>远程访问Linux服务器 | Hexo</title>
 
   
 
@@ -100,11 +100,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">红茶三杯（1-2）</h1>
+          <h1 class="title-wrap">远程访问Linux服务器</h1>
           <h2 class="title-sub-wrap">
             <strong>John Doe</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-04-19T10:31:52.000Z" itemprop="datePublished">2023-04-19</time>
+            <time  class="article-date" datetime="2023-04-19T10:38:52.000Z" itemprop="datePublished">2023-04-19</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -133,77 +133,262 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <ol>
-<li>网络（计算机网络）的概念</li>
+        <p>项目14 远程访问Linux服务器</p>
+<ol>
+<li>认识Telnet服务相关软件包</li>
 </ol>
-<p>由许许多多不同的网络设备构建而成的网络</p>
+<ol>
+<li>安装Telnet服务</li>
+</ol>
+<p>Yum install telnet</p>
 <ol start="2">
-<li>HUB（集线器），总线型设备，</li>
+<li>配置&#x2F;etc&#x2F;xinetd.d&#x2F;telnet文件启动telnet</li>
 </ol>
-<p>缺点：存在数据上通讯上冲突，存在数据交换上的瓶颈，如果总线任何一个地方出现问题，整个网络会瘫痪，如果有一个节点正在通讯，另外的节点只能等待</p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps43.jpg" alt="img"> </p>
 <ol start="3">
-<li>Switch（交换机）</li>
+<li>设置最大连接数</li>
 </ol>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps1.jpg" alt="img"> </p>
-<p>功能：作为网络终端用户的接入</p>
-<p>交换机每个端口都是独立的，端口和端口之间不会抢带宽（不会抢网速），不会造成冲突</p>
+<p>另起一行，设置最大连接数</p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps44.jpg" alt="img"> </p>
 <ol start="4">
-<li>广播、单播、组播</li>
+<li>设置Telnet的访问控制</li>
 </ol>
-<p>广播：在同个广播域（网段）内都能收到广播</p>
-<p>广播缺点：耗费CPU等资源，造成网络带宽浪费，网络资源的损耗</p>
-<p>单播：点对点的传播</p>
-<p>组播：人为 控制数据流的流向</p>
-<p>5.路由器（Router）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps2.jpg" alt="img"> </p>
-<p>功能：支持路由（去往某个目的地的路径）协议</p>
-<p>收到数据包进行数据转发，维护路由条目、路由表</p>
-<p>广域网链路支持</p>
-<p> 寻址、路径选择（根据路由表）、数据转发、广播控制、流量过滤和管控、WAN连接广域网</p>
-<p>家用路由器接口示意图：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps3.jpg" alt="img"> </p>
-<p>LAN：内网接口  WAN：广域网接口 </p>
-<p>6.OSI模型</p>
-<p>分为七层，由下到上分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps4.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps5.jpg" alt="img"> </p>
-<p>应用层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps6.jpg" alt="img"> </p>
-<p>表示层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps7.jpg" alt="img"> </p>
-<p>会话层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps8.jpg" alt="img"> </p>
-<p>下四层负责传输任务</p>
-<p>传输层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps9.jpg" alt="img"> </p>
-<p>网络层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps10.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps11.jpg" alt="img"> </p>
-<p>寻址：寻找IP地址</p>
-<p>路由：选最优先的路</p>
-<p>路由只关心网络号</p>
-<p>路由器用于连接两个不同的网段和网络</p>
-<p>连接广域网的设备被称为出口设备</p>
-<p>IP地址的组成：网络号+主机号</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps12.jpg" alt="img"> </p>
-<p>数据链路层（交换机工作于此层）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps13.jpg" alt="img"> </p>
-<p>MAC：物理地址、硬件地址(MAC地址会被烧录到硬件上，如网卡）</p>
-<p>MAC地址全球唯一，以十六进制数来标识48位的地址，用于局域网内的寻址</p>
-<p>IPV4：别名逻辑地址，进行逻辑寻址时的参考对象，网段之间考虑IP，局域网内部考虑MAC，路由器的每个端口都有一个MAC</p>
-<p>IP可变，MAC不可变</p>
-<p>交换机：整个交换机就是一个广播域，每个端口都会收到广播，每个端口都是一个独立冲突域，与其他端口不会互相冲突</p>
-<p>物理层（HUB集线器工作于此层）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps14.jpg" alt="img"> </p>
-<p>负责将上层数据帧转换成101001</p>
-<p>物理层标准规定了信号、连接器和电缆要求</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps15.jpg" alt="img"> </p>
-<p>水晶头接口：RJ45</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps16.jpg" alt="img"> </p>
-<p>总结：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps17.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps18.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps19.jpg" alt="img"> </p>
+<p>编辑配置文件：&#x2F;etc&#x2F;hosts.allow或&#x2F;etc&#x2F;hosts.deny</p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps45.jpg" alt="img"> </p>
+<p>拒绝所有客户端访问Telnet服务进程，172.168.0.0&#x2F;24的网段除外</p>
+<ol start="5">
+<li>编辑&#x2F;etc&#x2F;services更改端口号</li>
+</ol>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps46.jpg" alt="img"> </p>
+<p>更改为：</p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps47.jpg" alt="img">2323降低安全风险</p>
+<ol start="6">
+<li>重启服务</li>
+</ol>
+<p>Servcie xinetd restart</p>
+<p>14.3 SSH服务概述</p>
+<p>SSH为secure shell 的缩写，是专为远程登录会话和其他网络服务提供安全性的协议 </p>
+<ol>
+<li>认识SSH相关软件包</li>
+</ol>
+<p>yum install openssh-client -y</p>
+<p>安装openssh客户端</p>
+<p>yum install openssh-server -y</p>
+<p>安装openssh服务端</p>
+<ol start="2">
+<li>重启SSH服务</li>
+</ol>
+<p>Service sshd restart</p>
+<ol start="3">
+<li>远程连接</li>
+</ol>
+<p>远程连接到其他设备</p>
+<p>ssh账户名@ip地址&#x2F;主机名</p>
+<p>Ssh <a href="mailto:root@127.0.0.1">root@127.0.0.1</a></p>
+<ol start="4">
+<li>配置文件</li>
+</ol>
+<p>ssh服务端配置文件位于&#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
+<p>文件解析：</p>
+<table>
+<thead>
+<tr>
+<th><strong><strong>参数选项</strong></strong></th>
+<th><strong><strong>说明</strong></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Port 22</td>
+<td>SSH 预设使用 22 这个 port，您也可以使用多的 port ！</td>
+</tr>
+<tr>
+<td>Protocol 2,1</td>
+<td>选择的 SSH 协议版本，可以是 1 也可以是 2 ，如果要同时支持两者，就必须要使用 2,1 这个分隔了！</td>
+</tr>
+<tr>
+<td>ListenAddress 0.0.0.0</td>
+<td>监听的主机适配卡！举个例子来说，如果您有两个 IP，分别是 192.168.0.100 及 192.168.2.20 ，那么只想要开放 192.168.0.100 时，就可以写如同下面的样式：</td>
+</tr>
+<tr>
+<td>ListenAddress 192.168.0.100</td>
+<td>只监听来自 192.168.0.100 这个 IP 的SSH联机。如果不使用设定的话，则预设所有接口均接受 SSH</td>
+</tr>
+<tr>
+<td>PidFile &#x2F;var&#x2F;run&#x2F;sshd.pid</td>
+<td>可以放置 SSHD 这个 PID 的档案！左列为默认值</td>
+</tr>
+<tr>
+<td>LoginGraceTime 600</td>
+<td>当使用者连上 SSH server 之后，会出现输入密码的画面，在该画面中，在多久时间内没有成功连上 SSH server ，就断线！时间为秒！</td>
+</tr>
+<tr>
+<td>Compression yes</td>
+<td>是否可以使用压缩指令？</td>
+</tr>
+<tr>
+<td>HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_key</td>
+<td>SSH version 1 使用的私钥</td>
+</tr>
+<tr>
+<td>HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_rsa_key</td>
+<td>SSH version 2 使用的 RSA 私钥</td>
+</tr>
+<tr>
+<td>HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_dsa_key</td>
+<td>SSH version 2 使用的 DSA 私钥</td>
+</tr>
+<tr>
+<td>KeyRegenerationInterval 3600</td>
+<td>由前面联机的说明可以知道， version 1 会使用 server 的 Public Key ，每隔一段时间来重新建立一次！时间为秒！</td>
+</tr>
+<tr>
+<td>ServerKeyBits 768</td>
+<td>Server key 的长度！</td>
+</tr>
+<tr>
+<td>SyslogFacility AUTH</td>
+<td>当有人使用 SSH 登入系统的时候，SSH会记录信息</td>
+</tr>
+<tr>
+<td>LogLevel INFO</td>
+<td>登录记录的等级—》全部</td>
+</tr>
+<tr>
+<td>PermitRootLogin no</td>
+<td>是否允许 root 登入！预设是允许的，但是建议设定成 no！</td>
+</tr>
+<tr>
+<td>UserLogin no</td>
+<td>在 SSH 底下本来就不接受 login 这个程序的登入！</td>
+</tr>
+<tr>
+<td>StrictModes yes</td>
+<td>当使用者的 host key 改变之后，Server 就不接受联机</td>
+</tr>
+<tr>
+<td>RSAAuthentication yes</td>
+<td>是否使用纯的 RSA 认证！？仅针对 version 1 ！</td>
+</tr>
+<tr>
+<td>PubkeyAuthentication yes</td>
+<td>是否允许 Public Key ？只有 version 2</td>
+</tr>
+<tr>
+<td>AuthorizedKeysFile .ssh&#x2F;authorized_keys</td>
+<td>设定若要使用不需要密码登入的账号时，那么那个账号的存放档案所在档名！</td>
+</tr>
+<tr>
+<td>RhostsAuthentication no</td>
+<td>本机系统不使用 .rhosts ， .rhosts 不安全！</td>
+</tr>
+<tr>
+<td>IgnoreRhosts yes</td>
+<td>是否取消使用 ~&#x2F;.ssh&#x2F;.rhosts 来做为认证！</td>
+</tr>
+<tr>
+<td>RhostsRSAAuthentication no</td>
+<td>针对 version 1 ，使用 rhosts 档案在&#x2F;etc&#x2F;hosts.equiv配合 RSA 演算方式来进行认证！</td>
+</tr>
+<tr>
+<td>HostbasedAuthentication no</td>
+<td>这个项目与上面的项目类似，不过是给 version 2 使用的！</td>
+</tr>
+<tr>
+<td>IgnoreUserKnownHosts no</td>
+<td>是否忽略家目录内的 ~&#x2F;.ssh&#x2F;known_hosts 这个档案所记录的主机内容</td>
+</tr>
+<tr>
+<td>PasswordAuthentication yes</td>
+<td>密码验证当然是需要的！</td>
+</tr>
+<tr>
+<td>PermitEmptyPasswords no</td>
+<td>上面那一项如果设定为 yes 的话，这一项就最好设定为 no ，这个项目在是否允许以空的密码登入！</td>
+</tr>
+<tr>
+<td>ChallengeResponseAuthentication yes</td>
+<td>挑战任何的密码认证！所以，任何 login.conf 规定的认证方式，均可适用！</td>
+</tr>
+<tr>
+<td>PAMAuthenticationViaKbdInt yes</td>
+<td>是否启用其它的 PAM 模块！启用这个模块将会导致 PasswordAuthentication 设定失效！</td>
+</tr>
+<tr>
+<td>KerberosAuthentication no</td>
+<td>与Kerberos 有关的参数设定！底下不用设定</td>
+</tr>
+<tr>
+<td>KerberosOrLocalPasswd yes</td>
+<td>与Kerberos 有关的参数设定！底下不用设定</td>
+</tr>
+<tr>
+<td>KerberosTicketCleanup yes</td>
+<td>与Kerberos 有关的参数设定！底下不用设定</td>
+</tr>
+<tr>
+<td>KerberosTgtPassing no</td>
+<td>与Kerberos 有关的参数设定！底下不用设定</td>
+</tr>
+<tr>
+<td>X11Forwarding yes</td>
+<td>有关在 X-Window 底下使用的相关设定</td>
+</tr>
+<tr>
+<td>X11DisplayOffset 10</td>
+<td>有关在 X-Window 底下使用的相关设定</td>
+</tr>
+<tr>
+<td>X11UseLocalhost yes</td>
+<td>有关在 X-Window 底下使用的相关设定</td>
+</tr>
+<tr>
+<td>PrintMotd no</td>
+<td>登入后是否显示出一些信息呢？例如上次登入的时间、地点等，预设是 yes ，但是，如果为了安全，可以考虑改为 no ！</td>
+</tr>
+<tr>
+<td>PrintLastLog yes</td>
+<td>显示上次登入的信息！预设也是 yes</td>
+</tr>
+<tr>
+<td>KeepAlive yes</td>
+<td>一般而言，如果设定这项目的话，那么 SSH Server 会传送KeepAlive 的讯息给 Client 端，以确保两者的联机正常！在这个情况下，任何一端死掉后， SSH 可以立刻知道！而不会有僵尸程序的发生！</td>
+</tr>
+<tr>
+<td>UsePrivilegeSeparation yes</td>
+<td>使用者的权限设定项目！</td>
+</tr>
+<tr>
+<td>MaxStartups 10</td>
+<td>同时允许几个尚未登入的联机画面</td>
+</tr>
+<tr>
+<td>DenyUsers *</td>
+<td>设定受抵挡的使用者名称</td>
+</tr>
+<tr>
+<td>AllowUsers *</td>
+<td>设定允许的使用者名称</td>
+</tr>
+</tbody></table>
+<p>配置远程服务器</p>
+<p>①　一般情况下ssh使用默认配置就可正常工作，但为了安全着想，需要把49、64行前面的#去掉</p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps48.jpg" alt="img"> </p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps49.jpg" alt="img"> </p>
+<p>②　在客户端生成密钥</p>
+<p>在生成密钥前，需要在服务器和客户端创建相同的szclient用户，然后在客户端生成密钥</p>
+<p>Ssh-keygen：生成公钥和密钥</p>
+<p>1.把密钥上传到服务器</p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps50.jpg" alt="img"> </p>
+<p>2.再从服务器把密钥复制到authorized_keys（存放密钥的文件）中，authorized_keys权限给满777</p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps51.jpg" alt="img"> </p>
+<p>3.在客户端使用ssh-copy-id &lt;用户名&gt;@&lt;IP地址&gt;进入</p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps52.jpg" alt="img"> </p>
+<p>已成功进入</p>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps53.jpg" alt="img"> </p>
+<ol start="5">
+<li>最后再进入ssh主配置文件把是否需要口令验证改为No</li>
+</ol>
+<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps54.jpg" alt="img"> </p>
 
       </section>
 
@@ -216,8 +401,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置与管理FTP服务器</h2>
+        <a href="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">NFS配置</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -231,8 +416,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/Windows/%E9%85%8D%E7%BD%AEws08/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置Windows server 2008 R2</h2>
+        <a href="/2023/04/19/Windows/2008%E5%AE%89%E8%A3%85/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">安装与规划Windows server 2008</h2>
         </a>
       
       <div class="card-text--row">Older</div>

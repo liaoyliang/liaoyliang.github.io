@@ -22,7 +22,7 @@
 
   
 
-  <title>红茶三杯（1-2） | Hexo</title>
+  <title>配置与管理FTP服务器 | Hexo</title>
 
   
 
@@ -100,7 +100,7 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">红茶三杯（1-2）</h1>
+          <h1 class="title-wrap">配置与管理FTP服务器</h1>
           <h2 class="title-sub-wrap">
             <strong>John Doe</strong>
             <span>发布于</span>
@@ -133,77 +133,85 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <ol>
-<li>网络（计算机网络）的概念</li>
+        <p>项目12 配置与管理FTP服务器</p>
+<p>FTP是一个C&#x2F;S系统，用户通过一个支持FTP协议的客户机程序，连接到远程主机上的FTP服务器程序</p>
+<p>例：用户通过客户机程序向服务器发出命令——服务器相应命令，将指定文件送至用户的机器上——客户端代表用户接收到这份文件，将其存放到用户目录中</p>
+<ol>
+<li>认识vsftpd服务相关软件包</li>
 </ol>
-<p>由许许多多不同的网络设备构建而成的网络</p>
+<p>(1) 安装vsftpd</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps33.jpg" alt="img"> </p>
+<p>(2) 开启，重启vsftpd服务</p>
+<p>Service vsftpd start</p>
+<p>Service vsftpd restart</p>
+<p>(3) vsftpd主配置文件</p>
+<p>安装时会在&#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf建立著配置文件，所属用户组为root，这个配置文件主要分为全局配置、匿名用户配置、实名用户配置三个方面，#代表注释，真正起作用的是没有#的行</p>
+<p>任务12.2 配置匿名用户模式下的FTP服务器</p>
+<ol>
+<li>配置匿名用户</li>
+</ol>
+<p>(1) 配置vsftpd.conf</p>
+<p>配置vsftpd.conf命令如下：</p>
+<p>Vim &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</p>
+<p>匿名用户配置：</p>
+<p>anoymous_enable&#x3D;YES</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps34.jpg" alt="img"> </p>
+<p>是否允许匿名用户登录</p>
+<p>anon_upload_enable&#x3D;YES</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps35.jpg" alt="img"> </p>
+<p>是否允许匿名用户上传文件，此功能必须建立在write_enable&#x3D;YES的基础上，如果write_enable&#x3D;NO，此功能不能实现；同时目标文件夹必须对匿名用户开放写入权限</p>
+<p> anon_mkdir_write_enable&#x3D;YES</p>
+<p> <img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps36.jpg" alt="img"></p>
+<p>是否允许匿名用户创建文件夹，此功能必须建立在write_enable&#x3D;YES上,如果write_enable&#x3D;NO，此功能不能实现；同时目标文件夹必须对匿名用户开放写入权限</p>
+<p>no_anon_password&#x3D;YES</p>
+<p>  <img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps37.jpg" alt="img"></p>
+<p>匿名用户访问FTP服务器时直接登录，不再要求输入密码</p>
+<p>write_enable&#x3D;YES</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps38.jpg" alt="img"> </p>
+<p>是否授予匿名用户读写入</p>
+<p>(2) 创建测试目录并修改权限</p>
+<p>根据任务描述创建相应目录&#x2F;var&#x2F;ftp&#x2F;share，并设置好权限，命令格式如下：</p>
+<p>mkdir &#x2F;var&#x2F;ftp&#x2F;share</p>
+<p>chmod 777 &#x2F;var&#x2F;ftp&#x2F;share</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps39.jpg" alt="img"> </p>
+<p>任务12.3 配置实名用户模式下的FTP服务器</p>
+<ol>
+<li>配置实名用户</li>
+</ol>
+<p>Vim &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</p>
+<p>实名用户配置</p>
+<p>local_enable&#x3D;YES  </p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps40.jpg" alt="img"> </p>
+<p>是否允许本地用户登录  </p>
+<p>write_enable&#x3D;YES</p>
+<p>授予用户读写权限</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps41.jpg" alt="img">  </p>
+<p>local_umask&#x3D;022</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps42.jpg" alt="img"> </p>
+<p>控制上传文件和文件夹权限</p>
 <ol start="2">
-<li>HUB（集线器），总线型设备，</li>
+<li>新建用户</li>
 </ol>
-<p>缺点：存在数据上通讯上冲突，存在数据交换上的瓶颈，如果总线任何一个地方出现问题，整个网络会瘫痪，如果有一个节点正在通讯，另外的节点只能等待</p>
+<p>shell</p>
+<p>Useradd user_name -s &#x2F;sbin&#x2F; nologin </p>
 <ol start="3">
-<li>Switch（交换机）</li>
+<li>连接ftp服务器</li>
 </ol>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps1.jpg" alt="img"> </p>
-<p>功能：作为网络终端用户的接入</p>
-<p>交换机每个端口都是独立的，端口和端口之间不会抢带宽（不会抢网速），不会造成冲突</p>
-<ol start="4">
-<li>广播、单播、组播</li>
-</ol>
-<p>广播：在同个广播域（网段）内都能收到广播</p>
-<p>广播缺点：耗费CPU等资源，造成网络带宽浪费，网络资源的损耗</p>
-<p>单播：点对点的传播</p>
-<p>组播：人为 控制数据流的流向</p>
-<p>5.路由器（Router）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps2.jpg" alt="img"> </p>
-<p>功能：支持路由（去往某个目的地的路径）协议</p>
-<p>收到数据包进行数据转发，维护路由条目、路由表</p>
-<p>广域网链路支持</p>
-<p> 寻址、路径选择（根据路由表）、数据转发、广播控制、流量过滤和管控、WAN连接广域网</p>
-<p>家用路由器接口示意图：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps3.jpg" alt="img"> </p>
-<p>LAN：内网接口  WAN：广域网接口 </p>
-<p>6.OSI模型</p>
-<p>分为七层，由下到上分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps4.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps5.jpg" alt="img"> </p>
-<p>应用层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps6.jpg" alt="img"> </p>
-<p>表示层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps7.jpg" alt="img"> </p>
-<p>会话层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps8.jpg" alt="img"> </p>
-<p>下四层负责传输任务</p>
-<p>传输层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps9.jpg" alt="img"> </p>
-<p>网络层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps10.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps11.jpg" alt="img"> </p>
-<p>寻址：寻找IP地址</p>
-<p>路由：选最优先的路</p>
-<p>路由只关心网络号</p>
-<p>路由器用于连接两个不同的网段和网络</p>
-<p>连接广域网的设备被称为出口设备</p>
-<p>IP地址的组成：网络号+主机号</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps12.jpg" alt="img"> </p>
-<p>数据链路层（交换机工作于此层）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps13.jpg" alt="img"> </p>
-<p>MAC：物理地址、硬件地址(MAC地址会被烧录到硬件上，如网卡）</p>
-<p>MAC地址全球唯一，以十六进制数来标识48位的地址，用于局域网内的寻址</p>
-<p>IPV4：别名逻辑地址，进行逻辑寻址时的参考对象，网段之间考虑IP，局域网内部考虑MAC，路由器的每个端口都有一个MAC</p>
-<p>IP可变，MAC不可变</p>
-<p>交换机：整个交换机就是一个广播域，每个端口都会收到广播，每个端口都是一个独立冲突域，与其他端口不会互相冲突</p>
-<p>物理层（HUB集线器工作于此层）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps14.jpg" alt="img"> </p>
-<p>负责将上层数据帧转换成101001</p>
-<p>物理层标准规定了信号、连接器和电缆要求</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps15.jpg" alt="img"> </p>
-<p>水晶头接口：RJ45</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps16.jpg" alt="img"> </p>
-<p>总结：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps17.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps18.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps19.jpg" alt="img"> </p>
+<p>ftp[ip&#x2F;服务器名]  注:127.0.0.1可以理解成本机IP </p>
+<p>ftp [ip&#x2F;服务器名]</p>
+<p>FTP&gt;命令</p>
+<p>常用命令：</p>
+<p>user &lt;用户名&gt; [密码]  登录主机</p>
+<p>dir [远程目录]  显示远程计算机的目录</p>
+<p>pwd  显示当前路径</p>
+<p>cd [远程计算机上的目录]  切换目录</p>
+<p>rename &lt;源文件名&gt; &lt;新文件名&gt;  重命名远程文件</p>
+<p>rmdir &lt;目录名&gt;  删除远程目录</p>
+<p>mkdir &lt;目录名&gt;  创建目录名 </p>
+<p>delete &lt;文件名&gt;  删除文件</p>
+<p>get &lt;远程文件名&gt;  &lt;本地文件名&gt;  下载文件</p>
+<p>put &lt;本地文件名&gt; [远程文件名]  与put相同用于下载文件        </p>
+<p>Bye&#x2F;quit  结束与远程计算机的FTP对话并退出</p>
 
       </section>
 
@@ -216,8 +224,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置与管理FTP服务器</h2>
+        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">配置与管理web服务器</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -231,8 +239,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/Windows/%E9%85%8D%E7%BD%AEws08/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置Windows server 2008 R2</h2>
+        <a href="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">红茶三杯（1-2）</h2>
         </a>
       
       <div class="card-text--row">Older</div>

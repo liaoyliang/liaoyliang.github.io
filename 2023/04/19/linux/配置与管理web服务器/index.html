@@ -22,7 +22,7 @@
 
   
 
-  <title>红茶三杯（1-2） | Hexo</title>
+  <title>配置与管理web服务器 | Hexo</title>
 
   
 
@@ -100,7 +100,7 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">红茶三杯（1-2）</h1>
+          <h1 class="title-wrap">配置与管理web服务器</h1>
           <h2 class="title-sub-wrap">
             <strong>John Doe</strong>
             <span>发布于</span>
@@ -133,77 +133,123 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <ol>
-<li>网络（计算机网络）的概念</li>
+        <p>项目11 配置与管理web服务器</p>
+<p>1.认识Apache服务相关软件包</p>
+<p>Apache的相应软件包名为httpd，由于httpd服务的相关性，还要安装httpd-tools这个软件包</p>
+<p>apache主程序：httpd-2.2.15</p>
+<p>rpm -qa |grep httpd</p>
+<p>rpm -qa |grep httpd-tolls</p>
+<p>查询httpd、httpd-tolls软件包是否安装</p>
+<p>2.Apache服务的操作</p>
+<p>①　启动httpd：service httpd start</p>
+<p>②　关闭httpd：service httpd stop</p>
+<p>③　重启httpd：service httpd restart</p>
+<p>任务11.2  配置web服务器</p>
+<p> 1.搭建最简单的web测试环境</p>
+<p>确认Apache的相关软件包正确安装后，无需更改任何文件，在浏览器地址栏输出服务器IP地址（即本机ip地址），即可看到Apache2 Test Page页面</p>
+<p>能看到该页面说明服务已经正确安装和启动</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps1.jpg" alt="img"> </p>
+<p>可以通过建立一个简单的测试页面去测试Apache服务安装与启用正确与否，命令 如下：</p>
+<p>ehco “This is a test page！” &gt;&gt; &#x2F;var&#x2F;www&#x2F;html&#x2F;index.html</p>
+<p>创建默认主页在浏览器地址栏输入服务器IP地址进行访问</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps2.jpg" alt="img"> </p>
+<ol>
+<li>配置主配置文件常用项</li>
 </ol>
-<p>由许许多多不同的网络设备构建而成的网络</p>
+<p>(1) 指定主目录</p>
+<p>指定主目录即指定Apache服务器存放网址的路径，默认所有要求提供HTTP服务的链接，都以这个目录为主目录，在虚拟主机内也可以通过该项指定虚拟主机的主目录</p>
+<p>DocumentRoot &#x2F;myweb</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps3.jpg" alt="img"> </p>
+<p>(2) 指定主页</p>
+<p>指定主页即指定站点的默认主页名称</p>
+<p>DirectoryIndex mypage.html</p>
+<p>指定主页为mypage.html</p>
+<p>(3) 指定端口</p>
+<p>指定端口即指定Apache服务器的监听端口，默认端口号为80</p>
+<p>Listen 172.168.0.100</p>
+<p>监听172.168.0.100的80端口</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps4.jpg" alt="img"> </p>
+<p>(4) 访问控制</p>
+<p>访问控制即对可以访问的Apache服务器的IP地址进行控制，即在允许的IP地址范围内可以访问Apache服务器，其他的不能访问Apache服务器</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps5.jpg" alt="img"> </p>
+<p>除了来自virus.com域和IP地址为172.168.0.12的客户机外，允许所有客户机的访问</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps6.jpg" alt="img"> </p>
+<p>仅允许来自网络172.16.75.0&#x2F;24客户机的访问</p>
+<p>(5) 设定最大连接数</p>
+<p>设定最大连接数即设定Apache所能提供服务的最高数值，即同一时间连接的数目不能超过这个数值。一旦连接数目达到这个限制，Apache服务器则不再为别的连接提供服务，以免系统性能大幅度下降</p>
+<p>例：</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps7.jpg" alt="img"> </p>
+<p>最大连接数为100个</p>
+<p>(6) 设定默认字符集</p>
+<p>该参数定义了服务器返回给客户机的默认字符集</p>
+<p>例：</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps8.jpg" alt="img"> </p>
+<p>任务11.3 配置虚拟主机</p>
+<ol>
+<li>配置基于IP地址的虚拟主机</li>
+</ol>
+<p>基于IP地址的虚拟主机，需要web服务器的网卡绑定多个IP地址</p>
+<p>(1) 配置网卡</p>
+<p>将ifcfg-eth0网卡配置文件赋值为ifcfg-teh0:0，并修改内容</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps9.jpg" alt="img"> </p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps10.jpg" alt="img"> </p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps11.jpg" alt="img"> </p>
+<p>(2) 重启网络服务并查看</p>
+<p>service network restart</p>
+<p>重启网络服务</p>
+<p>Ifconfig：查看网络配置结果</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps12.jpg" alt="img"> </p>
+<p>将配置文件中<VirtualHost>和</VirtualHost>之间的内容复制，去掉每行注释#</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps13.jpg" alt="img"> </p>
+<p>创建相关文件夹以及主页</p>
+<p>mkdir -p &#x2F;vh&#x2F;ip1</p>
+<p>mkdir -p &#x2F;vh&#x2F;ip2</p>
+<p>在ip1,ip2下分别建立index.html，设置内容</p>
+<p>最后重启服务</p>
+<p>Service httpd restart</p>
+<p>在浏览器输入分别两个IP地址，如图所示</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps14.jpg" alt="img"><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps15.jpg" alt="img"> </p>
+<p>与上文有所修改</p>
 <ol start="2">
-<li>HUB（集线器），总线型设备，</li>
+<li>配置基于端口的虚拟主机</li>
 </ol>
-<p>缺点：存在数据上通讯上冲突，存在数据交换上的瓶颈，如果总线任何一个地方出现问题，整个网络会瘫痪，如果有一个节点正在通讯，另外的节点只能等待</p>
+<p>配置基于端口的虚拟主机，必须要修改主配置文件中的Listen项，添加需要监听的端口</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps16.jpg" alt="img">修改Listen项</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps17.jpg" alt="img"> </p>
+<p>配置主配置文件</p>
+<p>重启服务，在浏览器地址栏分别输入“IP地址：端口号</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps18.jpg" alt="img"> </p>
 <ol start="3">
-<li>Switch（交换机）</li>
+<li>配置基于名称的虚拟主机</li>
 </ol>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps1.jpg" alt="img"> </p>
-<p>功能：作为网络终端用户的接入</p>
-<p>交换机每个端口都是独立的，端口和端口之间不会抢带宽（不会抢网速），不会造成冲突</p>
-<ol start="4">
-<li>广播、单播、组播</li>
+<p>在主配置文件中找到NameVirtualHost *：80</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps19.jpg" alt="img">*替换成服务器地址</p>
+<p>域名的解析：nslookup</p>
+<p>创建相关文件夹和页面，重启服务</p>
+<p>任务11.4配置web</p>
+<p>Alias &#x2F;icons&#x2F; “&#x2F;var&#x2F;www&#x2F;icons&#x2F;”</p>
+<p>Alias表示虚拟目录，后面是虚拟目录名称、物理路径</p>
+<ol>
+<li>创建虚拟目录</li>
 </ol>
-<p>广播：在同个广播域（网段）内都能收到广播</p>
-<p>广播缺点：耗费CPU等资源，造成网络带宽浪费，网络资源的损耗</p>
-<p>单播：点对点的传播</p>
-<p>组播：人为 控制数据流的流向</p>
-<p>5.路由器（Router）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps2.jpg" alt="img"> </p>
-<p>功能：支持路由（去往某个目的地的路径）协议</p>
-<p>收到数据包进行数据转发，维护路由条目、路由表</p>
-<p>广域网链路支持</p>
-<p> 寻址、路径选择（根据路由表）、数据转发、广播控制、流量过滤和管控、WAN连接广域网</p>
-<p>家用路由器接口示意图：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps3.jpg" alt="img"> </p>
-<p>LAN：内网接口  WAN：广域网接口 </p>
-<p>6.OSI模型</p>
-<p>分为七层，由下到上分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps4.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps5.jpg" alt="img"> </p>
-<p>应用层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps6.jpg" alt="img"> </p>
-<p>表示层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps7.jpg" alt="img"> </p>
-<p>会话层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps8.jpg" alt="img"> </p>
-<p>下四层负责传输任务</p>
-<p>传输层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps9.jpg" alt="img"> </p>
-<p>网络层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps10.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps11.jpg" alt="img"> </p>
-<p>寻址：寻找IP地址</p>
-<p>路由：选最优先的路</p>
-<p>路由只关心网络号</p>
-<p>路由器用于连接两个不同的网段和网络</p>
-<p>连接广域网的设备被称为出口设备</p>
-<p>IP地址的组成：网络号+主机号</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps12.jpg" alt="img"> </p>
-<p>数据链路层（交换机工作于此层）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps13.jpg" alt="img"> </p>
-<p>MAC：物理地址、硬件地址(MAC地址会被烧录到硬件上，如网卡）</p>
-<p>MAC地址全球唯一，以十六进制数来标识48位的地址，用于局域网内的寻址</p>
-<p>IPV4：别名逻辑地址，进行逻辑寻址时的参考对象，网段之间考虑IP，局域网内部考虑MAC，路由器的每个端口都有一个MAC</p>
-<p>IP可变，MAC不可变</p>
-<p>交换机：整个交换机就是一个广播域，每个端口都会收到广播，每个端口都是一个独立冲突域，与其他端口不会互相冲突</p>
-<p>物理层（HUB集线器工作于此层）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps14.jpg" alt="img"> </p>
-<p>负责将上层数据帧转换成101001</p>
-<p>物理层标准规定了信号、连接器和电缆要求</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps15.jpg" alt="img"> </p>
-<p>水晶头接口：RJ45</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps16.jpg" alt="img"> </p>
-<p>总结：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps17.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps18.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps19.jpg" alt="img"> </p>
+<p>&lt;Directory “&#x2F;var&#x2F;www&#x2F;icons”&gt;</p>
+<p>Options Indexes MultiViews FollowSymLinks</p>
+<p>AllowOverride None</p>
+<p>Order allow，deny</p>
+<p>Allow from all</p>
+</Directory>
+
+<p>使用Directory定义该虚拟目录的访问权限</p>
+<ol>
+<li>创建虚拟目录</li>
+</ol>
+<p>下面以<a target="_blank" rel="noopener" href="http://www.xxinc.com为例,添加虚拟目录/vd%EF%BC%8C%E5%AF%B9%E5%BA%94%E7%89%A9%E7%90%86%E7%9B%AE%E5%BD%95/vd/vdir1">www.xxinc.com为例，添加虚拟目录/vd，对应物理目录/vd/vdir1</a></p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps20.jpg" alt="img"> </p>
+<p>创建对应所需目录</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps21.jpg" alt="img"> </p>
+<p>重启服务service httpd restart</p>
+<p>2.测试虚拟目录，输入域名&#x2F;虚拟目录名称&#x2F;页面名称进行访问</p>
+<p><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps22.jpg" alt="img"> </p>
 
       </section>
 
@@ -216,8 +262,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置与管理FTP服务器</h2>
+        <a href="/2023/04/19/Windows/2008%E5%AE%89%E8%A3%85/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">安装与规划Windows server 2008</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -231,8 +277,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/Windows/%E9%85%8D%E7%BD%AEws08/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置Windows server 2008 R2</h2>
+        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">配置与管理FTP服务器</h2>
         </a>
       
       <div class="card-text--row">Older</div>
