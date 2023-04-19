@@ -133,262 +133,258 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>项目14 远程访问Linux服务器</p>
+        <p><strong>项目14 远程访问Linux服务器</strong></p>
 <ol>
-<li>认识Telnet服务相关软件包</li>
+<li><strong>认识Telnet服务相关软件包</strong></li>
 </ol>
+<p><strong>1) 安装Telnet服务</strong></p>
+<p><strong>Yum install telnet</strong></p>
+<p><strong>2) 配置&#x2F;etc&#x2F;xinetd.d&#x2F;telnet文件启动telnet</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps43.jpg" alt="img"></strong> </p>
+<p><strong>3) 设置最大连接数</strong></p>
+<p><strong>另起一行，设置最大连接数</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps44.jpg" alt="img"></strong> </p>
+<p><strong>4) 设置Telnet的访问控制</strong></p>
+<p><strong>编辑配置文件：&#x2F;etc&#x2F;hosts.allow或&#x2F;etc&#x2F;hosts.deny</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps45.jpg" alt="img"></strong> </p>
+<p><strong>拒绝所有客户端访问Telnet服务进程，172.168.0.0&#x2F;24的网段除外</strong></p>
+<p><strong>5) 编辑&#x2F;etc&#x2F;services更改端口号</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps46.jpg" alt="img"></strong> </p>
+<p><strong>更改为：</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps47.jpg" alt="img">2323降低安全风险</strong></p>
+<hr>
+<p><strong>6) 重启服务</strong></p>
+<p><strong>Servcie xinetd restart</strong></p>
+<hr>
+<p><strong>14.3 SSH服务概述</strong></p>
+<p><strong>SSH为secure shell 的缩写，是专为远程登录会话和其他网络服务提供安全性的协议</strong> </p>
 <ol>
-<li>安装Telnet服务</li>
+<li><strong>认识SSH相关软件包</strong></li>
 </ol>
-<p>Yum install telnet</p>
+<p><strong>yum install openssh-client -y</strong></p>
+<p><strong>安装openssh客户端</strong></p>
+<p><strong>yum install openssh-server -y</strong></p>
+<p><strong>安装openssh服务端</strong></p>
 <ol start="2">
-<li>配置&#x2F;etc&#x2F;xinetd.d&#x2F;telnet文件启动telnet</li>
+<li><strong>重启SSH服务</strong></li>
 </ol>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps43.jpg" alt="img"> </p>
+<p><strong>Service sshd restart</strong></p>
 <ol start="3">
-<li>设置最大连接数</li>
+<li><strong>远程连接</strong></li>
 </ol>
-<p>另起一行，设置最大连接数</p>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps44.jpg" alt="img"> </p>
+<p><strong>远程连接到其他设备</strong></p>
+<p><strong>ssh账户名@ip地址&#x2F;主机名</strong></p>
+<p><strong>Ssh <a href="mailto:root@127.0.0.1">root@127.0.0.1</a></strong></p>
 <ol start="4">
-<li>设置Telnet的访问控制</li>
+<li><strong>配置文件</strong></li>
 </ol>
-<p>编辑配置文件：&#x2F;etc&#x2F;hosts.allow或&#x2F;etc&#x2F;hosts.deny</p>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps45.jpg" alt="img"> </p>
-<p>拒绝所有客户端访问Telnet服务进程，172.168.0.0&#x2F;24的网段除外</p>
-<ol start="5">
-<li>编辑&#x2F;etc&#x2F;services更改端口号</li>
-</ol>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps46.jpg" alt="img"> </p>
-<p>更改为：</p>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps47.jpg" alt="img">2323降低安全风险</p>
-<ol start="6">
-<li>重启服务</li>
-</ol>
-<p>Servcie xinetd restart</p>
-<p>14.3 SSH服务概述</p>
-<p>SSH为secure shell 的缩写，是专为远程登录会话和其他网络服务提供安全性的协议 </p>
-<ol>
-<li>认识SSH相关软件包</li>
-</ol>
-<p>yum install openssh-client -y</p>
-<p>安装openssh客户端</p>
-<p>yum install openssh-server -y</p>
-<p>安装openssh服务端</p>
-<ol start="2">
-<li>重启SSH服务</li>
-</ol>
-<p>Service sshd restart</p>
-<ol start="3">
-<li>远程连接</li>
-</ol>
-<p>远程连接到其他设备</p>
-<p>ssh账户名@ip地址&#x2F;主机名</p>
-<p>Ssh <a href="mailto:root@127.0.0.1">root@127.0.0.1</a></p>
-<ol start="4">
-<li>配置文件</li>
-</ol>
-<p>ssh服务端配置文件位于&#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
-<p>文件解析：</p>
+<p><strong>ssh服务端配置文件位于&#x2F;etc&#x2F;ssh&#x2F;sshd_config</strong></p>
+<hr>
+<hr>
+<hr>
+<p><strong>文件解析：</strong></p>
 <table>
 <thead>
 <tr>
-<th><strong><strong>参数选项</strong></strong></th>
-<th><strong><strong>说明</strong></strong></th>
+<th><strong>参数选项</strong></th>
+<th><strong>说明</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Port 22</td>
-<td>SSH 预设使用 22 这个 port，您也可以使用多的 port ！</td>
+<td><strong>Port 22</strong></td>
+<td><strong>SSH 预设使用 22 这个 port，您也可以使用多的 port ！</strong></td>
 </tr>
 <tr>
-<td>Protocol 2,1</td>
-<td>选择的 SSH 协议版本，可以是 1 也可以是 2 ，如果要同时支持两者，就必须要使用 2,1 这个分隔了！</td>
+<td><strong>Protocol 2,1</strong></td>
+<td><strong>选择的 SSH 协议版本，可以是 1 也可以是 2 ，如果要同时支持两者，就必须要使用 2,1 这个分隔了！</strong></td>
 </tr>
 <tr>
-<td>ListenAddress 0.0.0.0</td>
-<td>监听的主机适配卡！举个例子来说，如果您有两个 IP，分别是 192.168.0.100 及 192.168.2.20 ，那么只想要开放 192.168.0.100 时，就可以写如同下面的样式：</td>
+<td><strong>ListenAddress 0.0.0.0</strong></td>
+<td><strong>监听的主机适配卡！举个例子来说，如果您有两个 IP，分别是 192.168.0.100 及 192.168.2.20 ，那么只想要开放 192.168.0.100 时，就可以写如同下面的样式：</strong></td>
 </tr>
 <tr>
-<td>ListenAddress 192.168.0.100</td>
-<td>只监听来自 192.168.0.100 这个 IP 的SSH联机。如果不使用设定的话，则预设所有接口均接受 SSH</td>
+<td><strong>ListenAddress 192.168.0.100</strong></td>
+<td><strong>只监听来自 192.168.0.100 这个 IP 的SSH联机。如果不使用设定的话，则预设所有接口均接受 SSH</strong></td>
 </tr>
 <tr>
-<td>PidFile &#x2F;var&#x2F;run&#x2F;sshd.pid</td>
-<td>可以放置 SSHD 这个 PID 的档案！左列为默认值</td>
+<td><strong>PidFile &#x2F;var&#x2F;run&#x2F;sshd.pid</strong></td>
+<td><strong>可以放置 SSHD 这个 PID 的档案！左列为默认值</strong></td>
 </tr>
 <tr>
-<td>LoginGraceTime 600</td>
-<td>当使用者连上 SSH server 之后，会出现输入密码的画面，在该画面中，在多久时间内没有成功连上 SSH server ，就断线！时间为秒！</td>
+<td><strong>LoginGraceTime 600</strong></td>
+<td><strong>当使用者连上 SSH server 之后，会出现输入密码的画面，在该画面中，在多久时间内没有成功连上 SSH server ，就断线！时间为秒！</strong></td>
 </tr>
 <tr>
-<td>Compression yes</td>
-<td>是否可以使用压缩指令？</td>
+<td><strong>Compression yes</strong></td>
+<td><strong>是否可以使用压缩指令？</strong></td>
 </tr>
 <tr>
-<td>HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_key</td>
-<td>SSH version 1 使用的私钥</td>
+<td><strong>HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_key</strong></td>
+<td><strong>SSH version 1 使用的私钥</strong></td>
 </tr>
 <tr>
-<td>HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_rsa_key</td>
-<td>SSH version 2 使用的 RSA 私钥</td>
+<td><strong>HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_rsa_key</strong></td>
+<td><strong>SSH version 2 使用的 RSA 私钥</strong></td>
 </tr>
 <tr>
-<td>HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_dsa_key</td>
-<td>SSH version 2 使用的 DSA 私钥</td>
+<td><strong>HostKey &#x2F;etc&#x2F;ssh&#x2F;ssh_host_dsa_key</strong></td>
+<td><strong>SSH version 2 使用的 DSA 私钥</strong></td>
 </tr>
 <tr>
-<td>KeyRegenerationInterval 3600</td>
-<td>由前面联机的说明可以知道， version 1 会使用 server 的 Public Key ，每隔一段时间来重新建立一次！时间为秒！</td>
+<td><strong>KeyRegenerationInterval 3600</strong></td>
+<td><strong>由前面联机的说明可以知道， version 1 会使用 server 的 Public Key ，每隔一段时间来重新建立一次！时间为秒！</strong></td>
 </tr>
 <tr>
-<td>ServerKeyBits 768</td>
-<td>Server key 的长度！</td>
+<td><strong>ServerKeyBits 768</strong></td>
+<td><strong>Server key 的长度！</strong></td>
 </tr>
 <tr>
-<td>SyslogFacility AUTH</td>
-<td>当有人使用 SSH 登入系统的时候，SSH会记录信息</td>
+<td><strong>SyslogFacility AUTH</strong></td>
+<td><strong>当有人使用 SSH 登入系统的时候，SSH会记录信息</strong></td>
 </tr>
 <tr>
-<td>LogLevel INFO</td>
-<td>登录记录的等级—》全部</td>
+<td><strong>LogLevel INFO</strong></td>
+<td><strong>登录记录的等级—》全部</strong></td>
 </tr>
 <tr>
-<td>PermitRootLogin no</td>
-<td>是否允许 root 登入！预设是允许的，但是建议设定成 no！</td>
+<td><strong>PermitRootLogin no</strong></td>
+<td><strong>是否允许 root 登入！预设是允许的，但是建议设定成 no！</strong></td>
 </tr>
 <tr>
-<td>UserLogin no</td>
-<td>在 SSH 底下本来就不接受 login 这个程序的登入！</td>
+<td><strong>UserLogin no</strong></td>
+<td><strong>在 SSH 底下本来就不接受 login 这个程序的登入！</strong></td>
 </tr>
 <tr>
-<td>StrictModes yes</td>
-<td>当使用者的 host key 改变之后，Server 就不接受联机</td>
+<td><strong>StrictModes yes</strong></td>
+<td><strong>当使用者的 host key 改变之后，Server 就不接受联机</strong></td>
 </tr>
 <tr>
-<td>RSAAuthentication yes</td>
-<td>是否使用纯的 RSA 认证！？仅针对 version 1 ！</td>
+<td><strong>RSAAuthentication yes</strong></td>
+<td><strong>是否使用纯的 RSA 认证！？仅针对 version 1 ！</strong></td>
 </tr>
 <tr>
-<td>PubkeyAuthentication yes</td>
-<td>是否允许 Public Key ？只有 version 2</td>
+<td><strong>PubkeyAuthentication yes</strong></td>
+<td><strong>是否允许 Public Key ？只有 version 2</strong></td>
 </tr>
 <tr>
-<td>AuthorizedKeysFile .ssh&#x2F;authorized_keys</td>
-<td>设定若要使用不需要密码登入的账号时，那么那个账号的存放档案所在档名！</td>
+<td><strong>AuthorizedKeysFile .ssh&#x2F;authorized_keys</strong></td>
+<td><strong>设定若要使用不需要密码登入的账号时，那么那个账号的存放档案所在档名！</strong></td>
 </tr>
 <tr>
-<td>RhostsAuthentication no</td>
-<td>本机系统不使用 .rhosts ， .rhosts 不安全！</td>
+<td><strong>RhostsAuthentication no</strong></td>
+<td><strong>本机系统不使用 .rhosts ， .rhosts 不安全！</strong></td>
 </tr>
 <tr>
-<td>IgnoreRhosts yes</td>
-<td>是否取消使用 ~&#x2F;.ssh&#x2F;.rhosts 来做为认证！</td>
+<td><strong>IgnoreRhosts yes</strong></td>
+<td><strong>是否取消使用 ~&#x2F;.ssh&#x2F;.rhosts 来做为认证！</strong></td>
 </tr>
 <tr>
-<td>RhostsRSAAuthentication no</td>
-<td>针对 version 1 ，使用 rhosts 档案在&#x2F;etc&#x2F;hosts.equiv配合 RSA 演算方式来进行认证！</td>
+<td><strong>RhostsRSAAuthentication no</strong></td>
+<td><strong>针对 version 1 ，使用 rhosts 档案在&#x2F;etc&#x2F;hosts.equiv配合 RSA 演算方式来进行认证！</strong></td>
 </tr>
 <tr>
-<td>HostbasedAuthentication no</td>
-<td>这个项目与上面的项目类似，不过是给 version 2 使用的！</td>
+<td><strong>HostbasedAuthentication no</strong></td>
+<td><strong>这个项目与上面的项目类似，不过是给 version 2 使用的！</strong></td>
 </tr>
 <tr>
-<td>IgnoreUserKnownHosts no</td>
-<td>是否忽略家目录内的 ~&#x2F;.ssh&#x2F;known_hosts 这个档案所记录的主机内容</td>
+<td><strong>IgnoreUserKnownHosts no</strong></td>
+<td><strong>是否忽略家目录内的 ~&#x2F;.ssh&#x2F;known_hosts 这个档案所记录的主机内容</strong></td>
 </tr>
 <tr>
-<td>PasswordAuthentication yes</td>
-<td>密码验证当然是需要的！</td>
+<td><strong>PasswordAuthentication yes</strong></td>
+<td><strong>密码验证当然是需要的！</strong></td>
 </tr>
 <tr>
-<td>PermitEmptyPasswords no</td>
-<td>上面那一项如果设定为 yes 的话，这一项就最好设定为 no ，这个项目在是否允许以空的密码登入！</td>
+<td><strong>PermitEmptyPasswords no</strong></td>
+<td><strong>上面那一项如果设定为 yes 的话，这一项就最好设定为 no ，这个项目在是否允许以空的密码登入！</strong></td>
 </tr>
 <tr>
-<td>ChallengeResponseAuthentication yes</td>
-<td>挑战任何的密码认证！所以，任何 login.conf 规定的认证方式，均可适用！</td>
+<td><strong>ChallengeResponseAuthentication yes</strong></td>
+<td><strong>挑战任何的密码认证！所以，任何 login.conf 规定的认证方式，均可适用！</strong></td>
 </tr>
 <tr>
-<td>PAMAuthenticationViaKbdInt yes</td>
-<td>是否启用其它的 PAM 模块！启用这个模块将会导致 PasswordAuthentication 设定失效！</td>
+<td><strong>PAMAuthenticationViaKbdInt yes</strong></td>
+<td><strong>是否启用其它的 PAM 模块！启用这个模块将会导致 PasswordAuthentication 设定失效！</strong></td>
 </tr>
 <tr>
-<td>KerberosAuthentication no</td>
-<td>与Kerberos 有关的参数设定！底下不用设定</td>
+<td><strong>KerberosAuthentication no</strong></td>
+<td><strong>与Kerberos 有关的参数设定！底下不用设定</strong></td>
 </tr>
 <tr>
-<td>KerberosOrLocalPasswd yes</td>
-<td>与Kerberos 有关的参数设定！底下不用设定</td>
+<td><strong>KerberosOrLocalPasswd yes</strong></td>
+<td><strong>与Kerberos 有关的参数设定！底下不用设定</strong></td>
 </tr>
 <tr>
-<td>KerberosTicketCleanup yes</td>
-<td>与Kerberos 有关的参数设定！底下不用设定</td>
+<td><strong>KerberosTicketCleanup yes</strong></td>
+<td><strong>与Kerberos 有关的参数设定！底下不用设定</strong></td>
 </tr>
 <tr>
-<td>KerberosTgtPassing no</td>
-<td>与Kerberos 有关的参数设定！底下不用设定</td>
+<td><strong>KerberosTgtPassing no</strong></td>
+<td><strong>与Kerberos 有关的参数设定！底下不用设定</strong></td>
 </tr>
 <tr>
-<td>X11Forwarding yes</td>
-<td>有关在 X-Window 底下使用的相关设定</td>
+<td><strong>X11Forwarding yes</strong></td>
+<td><strong>有关在 X-Window 底下使用的相关设定</strong></td>
 </tr>
 <tr>
-<td>X11DisplayOffset 10</td>
-<td>有关在 X-Window 底下使用的相关设定</td>
+<td><strong>X11DisplayOffset 10</strong></td>
+<td><strong>有关在 X-Window 底下使用的相关设定</strong></td>
 </tr>
 <tr>
-<td>X11UseLocalhost yes</td>
-<td>有关在 X-Window 底下使用的相关设定</td>
+<td><strong>X11UseLocalhost yes</strong></td>
+<td><strong>有关在 X-Window 底下使用的相关设定</strong></td>
 </tr>
 <tr>
-<td>PrintMotd no</td>
-<td>登入后是否显示出一些信息呢？例如上次登入的时间、地点等，预设是 yes ，但是，如果为了安全，可以考虑改为 no ！</td>
+<td><strong>PrintMotd no</strong></td>
+<td><strong>登入后是否显示出一些信息呢？例如上次登入的时间、地点等，预设是 yes ，但是，如果为了安全，可以考虑改为 no ！</strong></td>
 </tr>
 <tr>
-<td>PrintLastLog yes</td>
-<td>显示上次登入的信息！预设也是 yes</td>
+<td><strong>PrintLastLog yes</strong></td>
+<td><strong>显示上次登入的信息！预设也是 yes</strong></td>
 </tr>
 <tr>
-<td>KeepAlive yes</td>
-<td>一般而言，如果设定这项目的话，那么 SSH Server 会传送KeepAlive 的讯息给 Client 端，以确保两者的联机正常！在这个情况下，任何一端死掉后， SSH 可以立刻知道！而不会有僵尸程序的发生！</td>
+<td><strong>KeepAlive yes</strong></td>
+<td><strong>一般而言，如果设定这项目的话，那么 SSH Server 会传送KeepAlive 的讯息给 Client 端，以确保两者的联机正常！在这个情况下，任何一端死掉后， SSH 可以立刻知道！而不会有僵尸程序的发生！</strong></td>
 </tr>
 <tr>
-<td>UsePrivilegeSeparation yes</td>
-<td>使用者的权限设定项目！</td>
+<td><strong>UsePrivilegeSeparation yes</strong></td>
+<td><strong>使用者的权限设定项目！</strong></td>
 </tr>
 <tr>
-<td>MaxStartups 10</td>
-<td>同时允许几个尚未登入的联机画面</td>
+<td><strong>MaxStartups 10</strong></td>
+<td><strong>同时允许几个尚未登入的联机画面</strong></td>
 </tr>
 <tr>
-<td>DenyUsers *</td>
-<td>设定受抵挡的使用者名称</td>
+<td>**DenyUsers ***</td>
+<td><strong>设定受抵挡的使用者名称</strong></td>
 </tr>
 <tr>
-<td>AllowUsers *</td>
-<td>设定允许的使用者名称</td>
+<td>**AllowUsers ***</td>
+<td><strong>设定允许的使用者名称</strong></td>
 </tr>
 </tbody></table>
-<p>配置远程服务器</p>
-<p>①　一般情况下ssh使用默认配置就可正常工作，但为了安全着想，需要把49、64行前面的#去掉</p>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps48.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps49.jpg" alt="img"> </p>
-<p>②　在客户端生成密钥</p>
-<p>在生成密钥前，需要在服务器和客户端创建相同的szclient用户，然后在客户端生成密钥</p>
-<p>Ssh-keygen：生成公钥和密钥</p>
-<p>1.把密钥上传到服务器</p>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps50.jpg" alt="img"> </p>
-<p>2.再从服务器把密钥复制到authorized_keys（存放密钥的文件）中，authorized_keys权限给满777</p>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps51.jpg" alt="img"> </p>
-<p>3.在客户端使用ssh-copy-id &lt;用户名&gt;@&lt;IP地址&gt;进入</p>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps52.jpg" alt="img"> </p>
-<p>已成功进入</p>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps53.jpg" alt="img"> </p>
+<hr>
+<p><strong>配置远程服务器</strong></p>
+<p><strong>①　一般情况下ssh使用默认配置就可正常工作，但为了安全着想，需要把49、64行前面的#去掉</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps48.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps49.jpg" alt="img"></strong> </p>
+<p><strong>②　在客户端生成密钥</strong></p>
+<p><strong>在生成密钥前，需要在服务器和客户端创建相同的szclient用户，然后在客户端生成密钥</strong></p>
+<p><strong>Ssh-keygen：生成公钥和密钥</strong></p>
+<p><strong>1.把密钥上传到服务器</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps50.jpg" alt="img"></strong> </p>
+<hr>
+<hr>
+<p><strong>2.再从服务器把密钥复制到authorized_keys（存放密钥的文件）中，authorized_keys权限给满777</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps51.jpg" alt="img"></strong> </p>
+<p><strong>3.在客户端使用ssh-copy-id &lt;用户名&gt;@&lt;IP地址&gt;进入</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps52.jpg" alt="img"></strong> </p>
+<p><strong>已成功进入</strong></p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps53.jpg" alt="img"></strong> </p>
 <ol start="5">
-<li>最后再进入ssh主配置文件把是否需要口令验证改为No</li>
+<li><strong>最后再进入ssh主配置文件把是否需要口令验证改为No</strong></li>
 </ol>
-<p><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps54.jpg" alt="img"> </p>
+<p><strong><img src="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/wps54.jpg" alt="img"></strong> </p>
 
       </section>
 
@@ -416,8 +412,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/Windows/%E9%85%8D%E7%BD%AEws08/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置Windows server 2008 R2</h2>
+        <a href="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">红茶三杯（1-2）</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -459,7 +455,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>10</span>
+        <span>12</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">

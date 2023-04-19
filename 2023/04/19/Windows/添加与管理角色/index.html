@@ -22,7 +22,7 @@
 
   
 
-  <title>NFS配置 | Hexo</title>
+  <title>添加与管理角色 | Hexo</title>
 
   
 
@@ -100,11 +100,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">NFS配置</h1>
+          <h1 class="title-wrap">添加与管理角色</h1>
           <h2 class="title-sub-wrap">
             <strong>John Doe</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-04-19T10:38:52.000Z" itemprop="datePublished">2023-04-19</time>
+            <time  class="article-date" datetime="2023-04-19T10:31:52.000Z" itemprop="datePublished">2023-04-19</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -133,73 +133,46 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p><strong>任务8.4认识NFS服务</strong></p>
-<p><strong>1.认识NFS服务相关软件包</strong></p>
-<p><strong>由于启动NFS时需要使用到nfs-utils和rpcbind这两个软件包，所以需要检查系统是否安装了</strong></p>
-<p><strong>NFS主程序：nfs-utils</strong></p>
-<p><strong>RPC主程序：rpcbind</strong></p>
+        <h3 id="2-3-3-任务3-添加与管理角色"><a href="#2-3-3-任务3-添加与管理角色" class="headerlink" title="2.3.3 任务3 添加与管理角色"></a>2.3.3 任务3 添加与管理角色</h3><p><strong>1.添加服务器角色</strong></p>
+<p><strong>(1) 依次单击“开始”—“所有程序”—“管理工具”—“服务器管理器”，选择“角色”，再“添加角色”</strong></p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps1.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps2.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps3.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps4.jpg" alt="img"></strong> </p>
+<p><strong>选择“安装”，即可添加角色</strong></p>
 <hr>
-<p><strong>小提示：启动顺序是先启动rpcbind再启动NFS,否则服务会启动失联</strong></p>
-<hr>
-<hr>
-<p><strong>（一）查询NFS安装</strong></p>
-<p><strong>2.启动NFS相关服务</strong></p>
-<p><strong>启动NFS需要启动nfs-utils和rpcbind服务，使用service [服务名称] start开启</strong></p>
-<p><strong><img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps1.jpg" alt="img"></strong> </p>
-<p><strong>（二）关闭NFS相关服务<img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps2.jpg" alt="img"></strong></p>
-<p><strong>（三）重启NFS服务器的相关命令<img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps3.jpg" alt="img"></strong></p>
-<hr>
-<p><strong>8.5配置NFS服务器</strong></p>
-<p><strong>NFS服务只有主配置文件&#x2F;etc&#x2F;exports</strong></p>
-<p><strong>1.创建共享目录，samba服务中已经创建</strong></p>
-<p><strong>2.编辑主配置文件&#x2F;etc&#x2F;exports</strong></p>
-<p><strong><img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps4.jpg" alt="img"></strong> </p>
-<p><strong>3.使用exports命令配置&#x2F;etc&#x2F;exports文件</strong></p>
-<p><strong>每次修改了&#x2F;etc&#x2F;exports文件之后，并不需要像其他服务那样修改完后要重启服务，使用exportfs就可以使设置立即生效</strong></p>
-<p><strong>exportfs命令格式如下：</strong><br><strong>exportfs -aruv</strong></p>
-<p><strong>常见选项说明如下：</strong></p>
-<p><strong>-a：将etc&#x2F;exports文件中所有共享目录全部输出，即使主配置文件中的设置立即生效</strong></p>
-<p><strong>-r：重新读取etc&#x2F;exports文件中的设置，并立即生效，且不需要重启NFS服务</strong></p>
-<p><strong>-v：在输出目录时将目录显示到屏幕上</strong></p>
-<p><strong>-u：将输出目录卸载，即停止输出目录</strong></p>
+<ol start="2">
+<li><strong>添加角色服务</strong></li>
+</ol>
+<p><strong>在服务器管理器界面展开“角色”，点击所要选的服务，单击“添加角色服务”，进入，选择要添加的角色服务即可</strong></p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps5.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps6.jpg" alt="img"></strong> </p>
 <hr>
 <hr>
 <hr>
-<p><strong>例如：</strong></p>
-<p><strong>exportfs -arv</strong></p>
-<p><strong>重新输出共享目录</strong></p>
-<p><strong><img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps5.jpg" alt="img"></strong> </p>
-<p><strong>4.重启NFS相关服务（service [服务名] restart）</strong></p>
-<p><strong><img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps6.jpg" alt="img"></strong> </p>
-<p><strong>5.使用showmount命令测试nfs输出目录状态</strong></p>
-<p><strong>showmount命令格式如下：</strong></p>
-<p><strong>showmount [-ade] 服务器名称或者IP地址</strong></p>
-<p> <strong>选项说明如下：</strong></p>
-<p><strong>-a：显示指定的NFS服务器的所有客户端主机及其所连接的目录</strong></p>
-<p><strong>-d：显示指定的NFS中已被客户端连接所有输出目录</strong></p>
-<p><strong>-e：显示指定的NFS服务器上所有输出的共享目录</strong></p>
-<p><strong><img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps7.jpg" alt="img"></strong> </p>
+<ol start="3">
+<li><strong>删除服务器角色</strong></li>
+</ol>
+<p><strong>在“服务器管理器”里删除即可</strong></p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps7.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps8.jpg" alt="img"></strong> </p>
 <hr>
-<p><strong>8.6配置NFS客户端</strong></p>
-<p><strong>1.查看NFS服务器信息</strong></p>
-<p><strong>挂载NFS共享目录之前，可以用showmount命令查看服务器上有哪些输出目录，以及共享目录是否允许客户端连接</strong></p>
-<p><strong>Showmount -e</strong></p>
-<p><strong><img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps8.jpg" alt="img"></strong> </p>
-<p><strong>2.挂载输出目录到本地</strong></p>
-<p><strong>(1) 使用mount挂在NFS文件系统</strong></p>
-<p><strong>mount格式如下</strong></p>
-<p><strong>mount -t nfs &lt;NFS服务器地址：共享目录&gt; &lt;本地挂载点&gt;</strong></p>
-<p><strong>本例服务器的&#x2F;myshare输出目录挂载到客户端本地的&#x2F;nfsshare目录下</strong></p>
-<p><strong><img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps9.jpg" alt="img"></strong> </p>
-<p><strong>这样就完成了远程服务器10.31.7.28上的&#x2F;sharedoc输出目录到本地的挂载，打开&#x2F;nfs目录就可以访问远程主机上的文件了</strong></p>
 <hr>
-<p><strong>(2) 修改&#x2F;etc&#x2F;fstab实现自动挂载</strong></p>
-<p><strong><img src="/2023/04/19/linux/NFS%E9%85%8D%E7%BD%AE/wps10.jpg" alt="img"></strong> </p>
-<p><strong>下一次开机时NFS服务器的输出目录将被自动挂载</strong></p>
 <hr>
-<p><strong>3.卸载输出目录</strong></p>
-<p><strong>当用户不需要使用某个NFS服务器的输出目录时，为了安全。最好及时将共享目录卸载</strong></p>
-<p><strong>Umount</strong></p>
+<hr>
+<hr>
+<hr>
+<hr>
+<ol start="4">
+<li><strong>管理服务器角色</strong></li>
+</ol>
+<p><strong>在服务器管理器展开角色点击对应服务器角色即可管理</strong></p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps9.jpg" alt="img"></strong> </p>
+<ol start="5">
+<li><strong>添加和删除功能</strong></li>
+</ol>
+<p><strong>在“服务器管理器”点击功能即可配置添加和删除</strong></p>
+<p><strong><img src="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/wps10.jpg" alt="img"></strong></p>
 
       </section>
 
@@ -212,8 +185,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/Windows/2008%E5%AE%89%E8%A3%85/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">安装与规划Windows server 2008</h2>
+        <a href="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">红茶三杯（1-2）</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -227,8 +200,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">远程访问Linux服务器</h2>
+        <a href="/2023/04/19/Windows/%E9%85%8D%E7%BD%AEws08/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">配置Windows server 2008 R2</h2>
         </a>
       
       <div class="card-text--row">Older</div>

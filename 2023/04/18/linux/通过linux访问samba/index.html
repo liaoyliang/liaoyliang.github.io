@@ -133,16 +133,17 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="通过Linux访问samba共享资源"><a href="#通过Linux访问samba共享资源" class="headerlink" title="通过Linux访问samba共享资源"></a>通过Linux访问samba共享资源</h2><p>使用mount命令能将samba或者windows上开放的共享资源挂载到本地文件系统中</p>
-<p>mount命令格式如下：</p>
-<p>mount &#x2F;&#x2F;主机名或IP地址&#x2F;共享目录 挂载点 [-o username&#x3D;用户名]</p>
-<p><img src="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/wps1.jpg" alt="img"> </p>
-<p>password后输入samba口令</p>
-<p>切换目录，新建一个文件a.txt，通过ll查看发现a.txt所属用户和组都是666，证明它是使用manager登录到SAMBA服务器的，并有写的权限</p>
-<p><img src="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/wps2.jpg" alt="img"> </p>
-<p>当SAMBA服务器资源共享之后，可以在服务器端用sambastatus命令查看SAMBA当前的使用情况</p>
-<p><img src="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/wps3.jpg" alt="img"> </p>
-<p>图中显示名为666的用户正在使用IP地址为10.31.7.25的计算机登录samba服务器</p>
+        <h2 id="通过Linux访问samba共享资源"><a href="#通过Linux访问samba共享资源" class="headerlink" title="通过Linux访问samba共享资源"></a>通过Linux访问samba共享资源</h2><p><strong>使用mount命令能将samba或者windows上开放的共享资源挂载到本地文件系统中</strong></p>
+<p><strong>mount命令格式如下：</strong></p>
+<p><strong>mount &#x2F;&#x2F;主机名或IP地址&#x2F;共享目录 挂载点 [-o username&#x3D;用户名]</strong></p>
+<p><strong><img src="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/wps1.jpg" alt="img"></strong> </p>
+<p><strong>password后输入samba口令</strong></p>
+<p><strong>切换目录，新建一个文件a.txt，通过ll查看发现a.txt所属用户和组都是666，证明它是使用manager登录到SAMBA服务器的，并有写的权限</strong></p>
+<p><strong><img src="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/wps2.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>当SAMBA服务器资源共享之后，可以在服务器端用sambastatus命令查看SAMBA当前的使用情况</strong></p>
+<p><strong><img src="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/wps3.jpg" alt="img"></strong> </p>
+<p>**图中显示名为666的用户正在使用IP地址为10.31.7.25的计算机登录samba<a href="">服务器**</a></p>
 
       </section>
 
@@ -155,8 +156,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置与管理FTP服务器</h2>
+        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">配置与管理web服务器</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -213,7 +214,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>10</span>
+        <span>12</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
