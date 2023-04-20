@@ -134,76 +134,94 @@
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
         <ol>
-<li>网络（计算机网络）的概念</li>
+<li><strong>网络（计算机网络）的概念</strong></li>
 </ol>
-<p>由许许多多不同的网络设备构建而成的网络</p>
+<p><strong>由许许多多不同的网络设备构建而成的网络</strong></p>
 <ol start="2">
-<li>HUB（集线器），总线型设备，</li>
+<li><strong>HUB（集线器），总线型设备，</strong></li>
 </ol>
-<p>缺点：存在数据上通讯上冲突，存在数据交换上的瓶颈，如果总线任何一个地方出现问题，整个网络会瘫痪，如果有一个节点正在通讯，另外的节点只能等待</p>
+<p><strong>缺点：存在数据上通讯上冲突，存在数据交换上的瓶颈，如果总线任何一个地方出现问题，整个网络会瘫痪，如果有一个节点正在通讯，另外的节点只能等待</strong></p>
 <ol start="3">
-<li>Switch（交换机）</li>
+<li><strong>Switch（交换机）</strong></li>
 </ol>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps1.jpg" alt="img"> </p>
-<p>功能：作为网络终端用户的接入</p>
-<p>交换机每个端口都是独立的，端口和端口之间不会抢带宽（不会抢网速），不会造成冲突</p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps1.jpg" alt="img"></strong> </p>
+<p><strong>功能：作为网络终端用户的接入</strong></p>
+<p><strong>交换机每个端口都是独立的，端口和端口之间不会抢带宽（不会抢网速），不会造成冲突</strong></p>
 <ol start="4">
-<li>广播、单播、组播</li>
+<li><strong>广播、单播、组播</strong></li>
 </ol>
-<p>广播：在同个广播域（网段）内都能收到广播</p>
-<p>广播缺点：耗费CPU等资源，造成网络带宽浪费，网络资源的损耗</p>
-<p>单播：点对点的传播</p>
-<p>组播：人为 控制数据流的流向</p>
-<p>5.路由器（Router）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps2.jpg" alt="img"> </p>
-<p>功能：支持路由（去往某个目的地的路径）协议</p>
-<p>收到数据包进行数据转发，维护路由条目、路由表</p>
-<p>广域网链路支持</p>
-<p> 寻址、路径选择（根据路由表）、数据转发、广播控制、流量过滤和管控、WAN连接广域网</p>
-<p>家用路由器接口示意图：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps3.jpg" alt="img"> </p>
-<p>LAN：内网接口  WAN：广域网接口 </p>
-<p>6.OSI模型</p>
-<p>分为七层，由下到上分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps4.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps5.jpg" alt="img"> </p>
-<p>应用层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps6.jpg" alt="img"> </p>
-<p>表示层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps7.jpg" alt="img"> </p>
-<p>会话层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps8.jpg" alt="img"> </p>
-<p>下四层负责传输任务</p>
-<p>传输层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps9.jpg" alt="img"> </p>
-<p>网络层：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps10.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps11.jpg" alt="img"> </p>
-<p>寻址：寻找IP地址</p>
-<p>路由：选最优先的路</p>
-<p>路由只关心网络号</p>
-<p>路由器用于连接两个不同的网段和网络</p>
-<p>连接广域网的设备被称为出口设备</p>
-<p>IP地址的组成：网络号+主机号</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps12.jpg" alt="img"> </p>
-<p>数据链路层（交换机工作于此层）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps13.jpg" alt="img"> </p>
-<p>MAC：物理地址、硬件地址(MAC地址会被烧录到硬件上，如网卡）</p>
-<p>MAC地址全球唯一，以十六进制数来标识48位的地址，用于局域网内的寻址</p>
-<p>IPV4：别名逻辑地址，进行逻辑寻址时的参考对象，网段之间考虑IP，局域网内部考虑MAC，路由器的每个端口都有一个MAC</p>
-<p>IP可变，MAC不可变</p>
-<p>交换机：整个交换机就是一个广播域，每个端口都会收到广播，每个端口都是一个独立冲突域，与其他端口不会互相冲突</p>
-<p>物理层（HUB集线器工作于此层）</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps14.jpg" alt="img"> </p>
-<p>负责将上层数据帧转换成101001</p>
-<p>物理层标准规定了信号、连接器和电缆要求</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps15.jpg" alt="img"> </p>
-<p>水晶头接口：RJ45</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps16.jpg" alt="img"> </p>
-<p>总结：</p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps17.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps18.jpg" alt="img"> </p>
-<p><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps19.jpg" alt="img"> </p>
+<p><strong>广播：在同个广播域（网段）内都能收到广播</strong></p>
+<p><strong>广播缺点：耗费CPU等资源，造成网络带宽浪费，网络资源的损耗</strong></p>
+<p><strong>单播：点对点的传播</strong></p>
+<p><strong>组播：人为 控制数据流的流向</strong></p>
+<p><strong>5.路由器（Router）</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps2.jpg" alt="img"></strong> </p>
+<p><strong>功能：支持路由（去往某个目的地的路径）协议</strong></p>
+<p><strong>收到数据包进行数据转发，维护路由条目、路由表</strong></p>
+<p><strong>广域网链路支持</strong></p>
+<p> <strong>寻址、路径选择（根据路由表）、数据转发、广播控制、流量过滤和管控、WAN连接广域网</strong></p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<p><strong>家用路由器接口示意图：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps3.jpg" alt="img"></strong> </p>
+<p><strong>LAN：内网接口  WAN：广域网接口</strong> </p>
+<hr>
+<p><strong>6.OSI模型</strong></p>
+<p><strong>分为七层，由下到上分别为物理层，数据链路层，网络层，传输层，会话层，表示层，应用层</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps4.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps5.jpg" alt="img"></strong> </p>
+<p><strong>应用层：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps6.jpg" alt="img"></strong> </p>
+<p><strong>表示层：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps7.jpg" alt="img"></strong> </p>
+<hr>
+<hr>
+<p><strong>会话层：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps8.jpg" alt="img"></strong> </p>
+<p><strong>下四层负责传输任务</strong></p>
+<hr>
+<p><strong>传输层：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps9.jpg" alt="img"></strong> </p>
+<p><strong>网络层：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps10.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps11.jpg" alt="img"></strong> </p>
+<p><strong>寻址：寻找IP地址</strong></p>
+<p><strong>路由：选最优先的路</strong></p>
+<p><strong>路由只关心网络号</strong></p>
+<p><strong>路由器用于连接两个不同的网段和网络</strong></p>
+<p><strong>连接广域网的设备被称为出口设备</strong></p>
+<p><strong>IP地址的组成：网络号+主机号</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps12.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>数据链路层（交换机工作于此层）</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps13.jpg" alt="img"></strong> </p>
+<p><strong>MAC：物理地址、硬件地址(MAC地址会被烧录到硬件上，如网卡）</strong></p>
+<p><strong>MAC地址全球唯一，以十六进制数来标识48位的地址，用于局域网内的寻址</strong></p>
+<p><strong>IPV4：别名逻辑地址，进行逻辑寻址时的参考对象，网段之间考虑IP，局域网内部考虑MAC，路由器的每个端口都有一个MAC</strong></p>
+<p><strong>IP可变，MAC不可变</strong></p>
+<p><strong>交换机：整个交换机就是一个广播域，每个端口都会收到广播，每个端口都是一个独立冲突域，与其他端口不会互相冲突</strong></p>
+<hr>
+<p><strong>物理层（HUB集线器工作于此层）</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps14.jpg" alt="img"></strong> </p>
+<p><strong>负责将上层数据帧转换成101001</strong></p>
+<p><strong>物理层标准规定了信号、连接器和电缆要求</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps15.jpg" alt="img"></strong> </p>
+<p><strong>水晶头接口：RJ45</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps16.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>总结：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps17.jpg" alt="img"></strong> </p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps18.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps19.jpg" alt="img"></strong> </p>
 
       </section>
 
@@ -216,8 +234,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/linux/%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AElinux%E6%9C%8D%E5%8A%A1%E5%99%A8(ssh)/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">远程访问Linux服务器</h2>
+        <a href="/2023/04/19/Windows/%E9%85%8D%E7%BD%AEws08/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">配置Windows server 2008 R2</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -231,8 +249,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/Windows/%E6%B7%BB%E5%8A%A0%E4%B8%8E%E7%AE%A1%E7%90%86%E8%A7%92%E8%89%B2/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">添加与管理角色</h2>
+        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">配置与管理web服务器</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -274,7 +292,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>12</span>
+        <span>13</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
