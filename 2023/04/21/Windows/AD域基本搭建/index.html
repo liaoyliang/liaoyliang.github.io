@@ -134,66 +134,89 @@
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
         <h2 id="AD域基础搭建"><a href="#AD域基础搭建" class="headerlink" title="AD域基础搭建"></a>AD域基础搭建</h2><ol>
-<li>首先配好服务器和客户端的IP地址，确保两台终端互相ping通，虚拟机网络设置选择NAT模式，本次试验终端为两台Windows server 2008</li>
+<li><strong>首先配好服务器和客户端的IP地址，确保两台终端互相ping通，虚拟机网络设置选择NAT模式，本次试验终端为两台Windows server 2008</strong></li>
 </ol>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps1.jpg" alt="img"> </p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps2.jpg" alt="img"> </p>
-<p>注意：客户端机子的DNS需要配置为服务器的IP</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps3.jpg" alt="img"> </p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps1.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps2.jpg" alt="img"></strong> </p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<p><strong>注意：客户端机子的DNS需要配置为服务器的IP</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps3.jpg" alt="img"></strong> </p>
+<hr>
 <ol start="2">
-<li>测试服务器和客户端之间的连通性</li>
+<li><strong>测试服务器和客户端之间的连通性</strong></li>
 </ol>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps4.jpg" alt="img"> </p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps4.jpg" alt="img"></strong> </p>
 <ol start="3">
-<li>添加AD域及DNS角色服务，配置域名等（在服务器上添加）</li>
+<li><strong>添加AD域及DNS角色服务，配置域名等（在服务器上添加）</strong></li>
 </ol>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps5.jpg" alt="img"> </p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps6.jpg" alt="img"> </p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps7.jpg" alt="img"> </p>
-<p>注意顺序：先安装DNS服务再安装AD域服务</p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps5.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps6.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps7.jpg" alt="img"></strong> </p>
+<p><strong>注意顺序：先安装DNS服务再安装AD域服务</strong></p>
+<hr>
 <ol start="4">
-<li>配置域名等信息</li>
+<li><strong>配置域名等信息</strong></li>
 </ol>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps8.jpg" alt="img"> </p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps9.jpg" alt="img"> </p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps10.jpg" alt="img"> </p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps11.jpg" alt="img"> </p>
-<p>默认</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps12.jpg" alt="img"> </p>
-<p>选择Windows server 2008 R2</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps13.jpg" alt="img"> </p>
-<p>下一步</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps14.jpg" alt="img"> </p>
-<p>选择是</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps15.jpg" alt="img"> </p>
-<p>默认即可</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps16.jpg" alt="img"> </p>
-<p>设置还原密码（注意：不是登录密码）</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps17.jpg" alt="img"> </p>
-<p>下一步</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps18.jpg" alt="img"> </p>
-<p>选择完成后重新启动</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps19.jpg" alt="img"> </p>
-<p>至此，AD域基本服务搭建完成</p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps8.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps9.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps10.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps11.jpg" alt="img"></strong> </p>
+<p><strong>默认</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps12.jpg" alt="img"></strong> </p>
+<p><strong>选择Windows server 2008 R2</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps13.jpg" alt="img"></strong> </p>
+<p><strong>下一步</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps14.jpg" alt="img"></strong> </p>
+<p><strong>选择是</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps15.jpg" alt="img"></strong> </p>
+<p><strong>默认即可</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps16.jpg" alt="img"></strong> </p>
+<p><strong>设置还原密码（注意：不是登录密码）</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps17.jpg" alt="img"></strong> </p>
+<p><strong>下一步</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps18.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>选择完成后重新启动</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps19.jpg" alt="img"></strong> </p>
+<p><strong>至此，AD域基本服务搭建完成</strong></p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
 <ol start="5">
-<li>使用客户端访问AD域</li>
+<li><strong>使用客户端访问AD域</strong></li>
 </ol>
-<p>先打开服务器，登录到桌面</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps20.jpg" alt="img"> </p>
-<p>输入先前设置的域名</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps21.jpg" alt="img"> </p>
-<p>点击确定，注意:输入该用户的密码</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps22.jpg" alt="img"> </p>
-<p>加入成功</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps23.jpg" alt="img"> </p>
-<p>重启客户端，输入密码</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps24.jpg" alt="img"> </p>
-<p>选择其他用户，用户名格式为：域名用户名</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps25.jpg" alt="img"> </p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps26.jpg" alt="img"> </p>
-<p>进入AD域成功,查看属性发现已在xwx.com这个域中</p>
-<p><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps27.jpg" alt="img"> </p>
-<p>至此，加入AD域完成</p>
+<p><strong>先打开服务器，登录到桌面</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps20.jpg" alt="img"></strong> </p>
+<p><strong>输入先前设置的域名</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps21.jpg" alt="img"></strong> </p>
+<p><strong>点击确定，注意:输入该用户的密码</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps22.jpg" alt="img"></strong> </p>
+<p><strong>加入成功</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps23.jpg" alt="img"></strong> </p>
+<p><strong>重启客户端，输入密码</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps24.jpg" alt="img"></strong> </p>
+<hr>
+<hr>
+<p><strong>选择其他用户，用户名格式为：域名用户名</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps25.jpg" alt="img"></strong> </p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps26.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>进入AD域成功,查看属性发现已在xwx.com这个域中</strong></p>
+<p><strong><img src="/2023/04/21/Windows/AD%E5%9F%9F%E5%9F%BA%E6%9C%AC%E6%90%AD%E5%BB%BA/wps27.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>至此，加入AD域完成</strong></p>
 
       </section>
 
