@@ -22,7 +22,7 @@
 
   
 
-  <title>配置与管理web服务器 | Hexo</title>
+  <title>部署与管理Active Directory域服务环境 | Hexo</title>
 
   
 
@@ -100,11 +100,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">配置与管理web服务器</h1>
+          <h1 class="title-wrap">部署与管理Active Directory域服务环境</h1>
           <h2 class="title-sub-wrap">
             <strong>John Doe</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-04-19T10:31:52.000Z" itemprop="datePublished">2023-04-19</time>
+            <time  class="article-date" datetime="2023-04-22T10:31:52.000Z" itemprop="datePublished">2023-04-22</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -133,129 +133,78 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="项目11-配置与管理web服务器"><a href="#项目11-配置与管理web服务器" class="headerlink" title="项目11 配置与管理web服务器"></a><strong>项目11 配置与管理web服务器</strong></h2><p><strong>1.认识Apache服务相关软件包</strong></p>
-<p><strong>Apache的相应软件包名为httpd，由于httpd服务的相关性，还要安装httpd-tools这个软件包</strong></p>
-<p><strong>apache主程序：httpd-2.2.15</strong></p>
-<p><strong>rpm -qa |grep httpd</strong></p>
-<p><strong>rpm -qa |grep httpd-tolls</strong></p>
-<p><strong>查询httpd、httpd-tolls软件包是否安装</strong></p>
-<hr>
-<p><strong>2.Apache服务的操作</strong></p>
-<p><strong>①　启动httpd：service httpd start</strong></p>
-<p><strong>②　关闭httpd：service httpd stop</strong></p>
-<p><strong>③　重启httpd：service httpd restart</strong></p>
-<hr>
-<p><strong>任务11.2  配置web服务器</strong></p>
-<p> <strong>1.搭建最简单的web测试环境</strong></p>
-<p><strong>确认Apache的相关软件包正确安装后，无需更改任何文件，在浏览器地址栏输出服务器IP地址（即本机ip地址），即可看到Apache2 Test Page页面</strong></p>
-<p><strong>能看到该页面说明服务已经正确安装和启动</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps1.jpg" alt="img"></strong> </p>
-<p><strong>可以通过建立一个简单的测试页面去测试Apache服务安装与启用正确与否，命令 如下：</strong></p>
-<p><strong>ehco “This is a test page！” &gt;&gt; &#x2F;var&#x2F;www&#x2F;html&#x2F;index.html</strong></p>
-<p><strong>创建默认主页在浏览器地址栏输入服务器IP地址进行访问</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps2.jpg" alt="img"></strong> </p>
-<ol>
-<li><strong>配置主配置文件常用项</strong></li>
-</ol>
-<p><strong>(1) 指定主目录</strong></p>
-<p><strong>指定主目录即指定Apache服务器存放网址的路径，默认所有要求提供HTTP服务的链接，都以这个目录为主目录，在虚拟主机内也可以通过该项指定虚拟主机的主目录</strong></p>
-<hr>
-<hr>
-<p><strong>DocumentRoot &#x2F;myweb</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps3.jpg" alt="img"></strong> </p>
-<p><strong>(2) 指定主页</strong></p>
-<p><strong>指定主页即指定站点的默认主页名称</strong></p>
-<p><strong>DirectoryIndex mypage.html</strong></p>
-<p><strong>指定主页为mypage.html</strong></p>
-<p><strong>(3) 指定端口</strong></p>
-<p><strong>指定端口即指定Apache服务器的监听端口，默认端口号为80</strong></p>
-<p><strong>Listen 172.168.0.100</strong></p>
-<p><strong>监听172.168.0.100的80端口</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps4.jpg" alt="img"></strong> </p>
-<p><strong>(4) 访问控制</strong></p>
-<p><strong>访问控制即对可以访问的Apache服务器的IP地址进行控制，即在允许的IP地址范围内可以访问Apache服务器，其他的不能访问Apache服务器</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps5.jpg" alt="img"></strong> </p>
-<p><strong>除了来自virus.com域和IP地址为172.168.0.12的客户机外，允许所有客户机的访问</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps6.jpg" alt="img"></strong> </p>
-<p><strong>仅允许来自网络172.16.75.0&#x2F;24客户机的访问</strong></p>
-<p><strong>(5) 设定最大连接数</strong></p>
-<p><strong>设定最大连接数即设定Apache所能提供服务的最高数值，即同一时间连接的数目不能超过这个数值。一旦连接数目达到这个限制，Apache服务器则不再为别的连接提供服务，以免系统性能大幅度下降</strong></p>
-<p><strong>例：</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps7.jpg" alt="img"></strong> </p>
-<p><strong>最大连接数为100个</strong></p>
-<p><strong>(6) 设定默认字符集</strong></p>
-<p><strong>该参数定义了服务器返回给客户机的默认字符集</strong></p>
-<p><strong>例：</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps8.jpg" alt="img"></strong> </p>
-<p><strong>任务11.3 配置虚拟主机</strong></p>
-<ol>
-<li><strong>配置基于IP地址的虚拟主机</strong></li>
-</ol>
-<p><strong>基于IP地址的虚拟主机，需要web服务器的网卡绑定多个IP地址</strong></p>
-<p><strong>(1) 配置网卡</strong></p>
-<p><strong>将ifcfg-eth0网卡配置文件赋值为ifcfg-teh0:0，并修改内容</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps9.jpg" alt="img"></strong> </p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps10.jpg" alt="img"></strong> </p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps11.jpg" alt="img"></strong> </p>
-<p><strong>(2) 重启网络服务并查看</strong></p>
-<p><strong>service network restart</strong></p>
-<p><strong>重启网络服务</strong></p>
-<p><strong>Ifconfig：查看网络配置结果</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps12.jpg" alt="img"></strong> </p>
-<p><strong>将配置文件中<VirtualHost>和</VirtualHost>之间的内容复制，去掉每行注释#</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps13.jpg" alt="img"></strong> </p>
-<p><strong>创建相关文件夹以及主页</strong></p>
-<p><strong>mkdir -p &#x2F;vh&#x2F;ip1</strong></p>
-<p><strong>mkdir -p &#x2F;vh&#x2F;ip2</strong></p>
-<p><strong>在ip1,ip2下分别建立index.html，设置内容</strong></p>
-<p><strong>最后重启服务</strong></p>
-<p><strong>Service httpd restart</strong></p>
-<p><strong>在浏览器输入分别两个IP地址，如图所示</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps14.jpg" alt="img"><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps15.jpg" alt="img"></strong> </p>
-<p><strong>与上文有所修改</strong></p>
-<ol start="2">
-<li><strong>配置基于端口的虚拟主机</strong></li>
-</ol>
-<p><strong>配置基于端口的虚拟主机，必须要修改主配置文件中的Listen项，添加需要监听的端口</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps16.jpg" alt="img">修改Listen项</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps17.jpg" alt="img"></strong> </p>
-<p><strong>配置主配置文件</strong></p>
-<p><strong>重启服务，在浏览器地址栏分别输入“IP地址：端口号</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps18.jpg" alt="img"></strong> </p>
-<hr>
-<ol start="3">
-<li><strong>配置基于名称的虚拟主机</strong></li>
-</ol>
-<p>*<em>在主配置文件中找到NameVirtualHost <em>：80</em></em></p>
-<p>**<img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps19.jpg" alt="img"><em>替换成服务器地址</em>*</p>
-<p><strong>域名的解析：nslookup</strong></p>
-<p><strong>创建相关文件夹和页面，重启服务</strong></p>
-<hr>
-<hr>
-<p><strong>任务11.4配置web</strong></p>
-<p><strong>Alias &#x2F;icons&#x2F; “&#x2F;var&#x2F;www&#x2F;icons&#x2F;”</strong></p>
-<p><strong>Alias表示虚拟目录，后面是虚拟目录名称、物理路径</strong></p>
-<ol>
-<li><strong>创建虚拟目录</strong></li>
-</ol>
-<p><strong>&lt;Directory “&#x2F;var&#x2F;www&#x2F;icons”&gt;</strong></p>
-<p><strong>Options Indexes MultiViews FollowSymLinks</strong></p>
-<p><strong>AllowOverride None</strong></p>
-<p><strong>Order allow，deny</strong></p>
-<p><strong>Allow from all</strong></p>
-<p><strong></Directory></strong></p>
-<p><strong>使用Directory定义该虚拟目录的访问权限</strong></p>
-<ol>
-<li><strong>创建虚拟目录</strong></li>
-</ol>
-<p><strong>下面以<a target="_blank" rel="noopener" href="http://www.xxinc.com为例,添加虚拟目录/vd%EF%BC%8C%E5%AF%B9%E5%BA%94%E7%89%A9%E7%90%86%E7%9B%AE%E5%BD%95/vd/vdir1">www.xxinc.com为例，添加虚拟目录/vd，对应物理目录/vd/vdir1</a></strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps20.jpg" alt="img"></strong> </p>
-<p><strong>创建对应所需目录</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps21.jpg" alt="img"></strong> </p>
-<p><strong>重启服务service httpd restart</strong></p>
-<hr>
-<p><strong>2.测试虚拟目录，输入域名&#x2F;虚拟目录名称&#x2F;页面名称进行访问</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/wps22.jpg" alt="img"></strong> </p>
+        <h3 id="项目4-部署与管理Active-Directory域服务环境"><a href="#项目4-部署与管理Active-Directory域服务环境" class="headerlink" title="项目4 部署与管理Active Directory域服务环境"></a>项目4 部署与管理Active Directory域服务环境</h3><p><strong>AD域服务基本搭建已在上章叙述完成，本章讲解安装额外域控制器</strong></p>
+<p><strong>4.3.2 任务2 安装额外的域控制器</strong></p>
+<p><strong>1.首先要检查win08-1和win08-2两台机子之间的连通性</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422105848220.png" alt="image-20230422105848220"></strong></p>
+<p><strong>2.安装AD域服务，操作方法与第一台域控制器完全相同</strong></p>
+<p><strong>3.启动AD域安装向导，当显示“选择某一部署配置”窗口时，选择“现有林”按钮，并选择“向现有域添加域控制器”按钮</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422111255924.png" alt="image-20230422111255924"></strong></p>
+<p><strong>4.单击下一步，显示如下图所示“网络凭据”窗口，在域名内输入主域（即你先前设置的域名），域林中可以存在多个主域控制器，彼此之间通过信任关系建立连接</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422111339949.png" alt="image-20230422111339949"></strong></p>
+<p><strong>5.单击”设置”按钮，显示如下图所示”windows安全对话框，需要指定可以通过相应主域控制器验证的用户账户凭据，该用户必须是Domain Admins组，拥有域管理员权限</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422111524676.png" alt="image-20230422111524676"></strong></p>
+<p><strong>6.单击确定，返回“网络凭据”窗口，单击下一步，显示如下图所示的”选择域”对话框，为该额外域控制器选择域</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422111734851.png" alt="image-20230422111734851"></strong></p>
+<p><strong>7.单击下一步，显示”请选择一个站点”窗口，在列表中选择站点，点击下一步</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422112221437.png" alt="image-20230422112221437"></strong></p>
+<p><strong>8.单击下一步，显示如下图所示的”其他域控制器选项”对话框，勾选”全局编录”复选框，将额外域控制器作为全局编录服务器，由于当前存在一个注册为该域的权威性名称服务器的DNS服务器，所以可以不勾选，也可勾选</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422112342398.png" alt="image-20230422112342398"></strong></p>
+<p><strong>9.单击下一步，完成设置数据库、日志文件和SYSVOL的位置，并设置自己服务还原模式密码等操作，然后开始配置AD域服务</strong></p>
+<p><strong>10.配置完成以后，显示“完成AD域服务安装向导”对话框，域的额外域控制器安装完成</strong></p>
+<p><strong>11.单击完成，重启计算机，并使用域用户账户登录到域</strong></p>
+<p><strong>12.至此，安装额外的域控制器操作完成</strong></p>
+<h3 id="4-3-3-任务3-转换服务器角色"><a href="#4-3-3-任务3-转换服务器角色" class="headerlink" title="4.3.3 任务3 转换服务器角色"></a>4.3.3 任务3 转换服务器角色</h3><p><strong>1.域控制器降级为成员服务器</strong></p>
+<p><strong>在域控制器上把活动目录删除，服务器就降级为成员服务器了</strong></p>
+<p><strong>(1)删除活动目录注意要点</strong><br><strong>用户删除活动目录也就是将域控制器降级为独立服务器。降级时要注意以下三点</strong></p>
+<p><strong>A：如果该域内还有其他域控制器，则该域会被降级为该域的成员服务器</strong></p>
+<p><strong>B：如果这个域控制器是该域的最后一个域控制器，则被降级后，该域内将不存在任何域控制器，因此，该域控制器被删除，而该计算机被降级为独立服务器</strong></p>
+<p><strong>C：如果这台域控制器是“全局编录”，则将其降级后，它将不再担当”全局编录”的角色，因此要先确定网络上是否还有其他”全局编录”域控制器，如果没有，则要先指派一台域控制器来担当”全局编录”的角色，否则将影响用户登录操作</strong></p>
+<p><strong>(2)删除活动目录</strong></p>
+<p><strong>A：以管理员身份登录 win2008-2，直接运行命令 dcpromo，打开“Active Directory域服务删除向导”，但如果该域控制器是“全局编录”服务器，就会显示如下图所示的提示框</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422143504638.png" alt="image-20230422143504638"></strong></p>
+<p><strong>B：若该计算机是域中的最后一台域控制器，可选中“删除该域，因为此服务器是该域中的最后一个域控制器”复选框，则降级后变为独立服务器，此处由于xwx40.com还有一个域控制器 win2008-1，xwx.com，所以不勾选复选框，如下图所示单击下一步</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422143528813.png" alt="image-20230422143528813"></strong></p>
+<p><strong>(3)接下来输入删除AD域服务后的管理员Administrator的新密码，单击下一步，确认从服务器上删除活动目录后，服务器将成为xwx40.com域上的一台成员服务器，删除完毕后重启计算机，这样就把域控制器降级为成员服务器了</strong></p>
+<p><strong>2.成员服务器降级为独立服务器</strong></p>
+<p><strong>win2008-2删除AD域服务后，降级为域xwx.com的成员服务器，现在将该成员服务器降级为独立服务器</strong></p>
+<p><strong>首先以管理员身份登录，然后依次点击：”开始”—“控制面板”—“系统和安全”—“系统”—“高级系统设置”—，弹出”系统属性”对话框，选择”计算机名”选项卡，单击’更改’按钮；弹出”计算机名&#x2F;域更改”窗口；在”隶属于”选项区域中，选择”工作组”按钮，输入脱离域后要加入的工作组名字（本例为WORKGROUP），单击”确定”，输入有权限脱离该域的账户和密码，重新启动计算机即可</strong></p>
+<p><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422144640576.png" alt="image-20230422144640576"></p>
+<p><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422144700094.png" alt="image-20230422144700094"></p>
+<p>成功脱离</p>
+<p><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422144719518.png" alt="image-20230422144719518"></p>
+<p><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422144744119.png" alt="image-20230422144744119"></p>
+<h3 id="4-3-4-任务4-创建子域"><a href="#4-3-4-任务4-创建子域" class="headerlink" title="4.3.4 任务4 创建子域"></a>4.3.4 任务4 创建子域</h3><p><strong>1.部署要求</strong></p>
+<p><strong>设置父域控制器和子域控制器的IP及DNS等</strong></p>
+<p><strong>部署域环境，父域域名为xwx40.com，子域域名为china.xwx40.com</strong></p>
+<p><strong>2.部署环境</strong></p>
+<p><strong>父域域名为xwx40.com，子域域名为china.xwx40.com，两者本身也是DNS服务器</strong></p>
+<p><strong>3.创建子域</strong></p>
+<p><strong>配置win2008-2的IP及DNS等，其中DNS一定要设置自身IP以及父域控制器的IP地址</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422151154353.png" alt="image-20230422151154353"></strong></p>
+<p><strong>启动”AD域服务安装向导”，在对话框中选择”现有林”和”在现有林中新建域”，如图所示</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422151102858.png" alt="image-20230422151102858"></strong></p>
+<p><strong>单击下一步，显示如图所示”网络凭据”对话框，在文本框内输入当前域控制器父域的域名；选择”备用凭据”按钮，单击设置添加备用凭据</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422151717764.png" alt="image-20230422151717764"></strong></p>
+<p><strong>单击下一步，显示如图所示的”命名新域”对话框，”父域的FQDN”文本框中将自动显示当前域控制器的域名，在”子域的单标签DNS名称”文本框中输入所要创建的子域名称（本例为china）</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422152534985.png" alt="image-20230422152534985"></strong></p>
+<p><strong>单击下一步，显示”其他域控制器选项”对话框，默认已选中”DNS”服务器</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422153220913.png" alt="image-20230422153220913"></strong></p>
+<p><strong>接下来的操作和额外域控制器的安装完全相同，按照引导下一步即可，完成后重启计算机，即可登录到子域中</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422153651372.png" alt="image-20230422153651372"></strong></p>
+<h3 id="4-验证子域的创建"><a href="#4-验证子域的创建" class="headerlink" title="4.验证子域的创建"></a>4.验证子域的创建</h3><p><strong>(1)重启win2008-2计算机后，用管理员登录到子域中，依次单击”开始”—“管理工具”—“Active Directory用户和计算机”选项，打开”Active Directory用户和计算机”窗口，可以看到china.xwx40.com子域</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422155824403.png" alt="image-20230422155824403"></strong></p>
+<p><strong>(2)在win2008-2上，依次单击”开始”—“管理工具”—“DNS选项”，打开”DNS”窗口，依次展开各选项，可以看到区域”china.xwx40.com”，如图所示</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422160458869.png" alt="image-20230422160458869"></strong></p>
+<p><strong>(3)打开子域控制器的”Active Directory用户和计算机”，可以看到域”china.xwx40.com”</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422160733685.png" alt="image-20230422160733685"></strong></p>
+<h3 id="5-验证父子关系"><a href="#5-验证父子关系" class="headerlink" title="5.验证父子关系"></a><strong>5.验证父子关系</strong></h3><p><strong>1.在win2008-1上以域管理员身份登录，选择”开始”—“管理工具”—“Active Directory域和信任关系”窗口，可以对域之间的信任关系进行管理，如图所示</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422161021680.png" alt="image-20230422161021680"></strong></p>
+<p><strong>2.在窗口左侧单击”xwx40.com”，选择”属性”命令，可以打开”xwx40.com属性”对话框，选择”信任”选项卡，如图所示，可以看到xwx40.com和其他域的信任关系。对话框的上部列出的是xwx40.com所信任的域，表面xwx40.com信任其子域china.xwx40.com；窗口下部列出的是信任xwx40.com的域，表明其子域china.xwx40.com信任其父域xwx40.com，也就是说，父域xwx40.com和子域china.xwx40.com有双向信任关系</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422161446445.png" alt="image-20230422161446445"></strong></p>
+<p><strong>3.在”Active Directory域和信任关系”窗口选择china.xwx40.com域，查看信任关系，如图所示，可以发现该域只是显式地信任其父域xwx40.com，而和另一域树中的根域smile.com并无显式的信任关系，可以直接创建它们之间的信任关系，以减少信任的路径</strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422161902661.png" alt="image-20230422161902661"></strong></p>
+<p><strong><img src="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/image-20230422161937823.png" alt="image-20230422161937823"></strong></p>
 
       </section>
 
@@ -263,28 +212,14 @@
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置与管理FTP服务器</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">通过Linux访问samba共享资源</h2>
+        <a href="/2023/04/21/linux/%E7%AE%A1%E7%90%86user%E5%92%8C%E7%BB%84/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">管理用户和组</h2>
         </a>
       
       <div class="card-text--row">Older</div>
