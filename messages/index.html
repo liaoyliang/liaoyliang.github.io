@@ -22,7 +22,7 @@
 
   
 
-  <title>配置与管理FTP服务器 | 米奇妙妙屋</title>
+  <title>随手记 | 米奇妙妙屋</title>
 
   
 
@@ -43,7 +43,7 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container post">
+<header class="header-container">
   
     <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
   
@@ -97,179 +97,38 @@
 
   
   
-    <div class="header-content">
-      <div class="post-text layout-block">
-        <div class="layout-margin">
-          <h1 class="title-wrap">配置与管理FTP服务器</h1>
-          <h2 class="title-sub-wrap">
-            <strong>liaoyl</strong>
-            <span>发布于</span>
-            <time  class="article-date" datetime="2023-04-19T10:31:52.000Z" itemprop="datePublished">2023-04-19</time>
-          </h2>
-          <ul class="wrap-list dark">
-  
-</ul>
-          <ul class="wrap-list dark">
-  
-</ul>
-        </div>
-      </div>
-    </div>
-  
 
   
+  
+    <div class="header-content">
+      <div class="post-text layout-block layout-padding">
+        <h1 class="title-wrap">随手记</h1>
+        
+      </div>
+    </div>
   
   
 </header>
 
-    <!-- 文章 -->
+    <!-- 分页(其他自定义页面) -->
 
-<!-- 文章内容 -->
+<!-- 自定义页面 -->
+
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
-      
-      
-      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="项目12-配置与管理FTP服务器"><a href="#项目12-配置与管理FTP服务器" class="headerlink" title="项目12 配置与管理FTP服务器"></a><strong>项目12 配置与管理FTP服务器</strong></h2><p><strong>FTP是一个C&#x2F;S系统，用户通过一个支持FTP协议的客户机程序，连接到远程主机上的FTP服务器程序</strong></p>
-<p><strong>例：用户通过客户机程序向服务器发出命令——服务器相应命令，将指定文件送至用户的机器上——客户端代表用户接收到这份文件，将其存放到用户目录中</strong></p>
-<ol>
-<li><strong>认识vsftpd服务相关软件包</strong></li>
-</ol>
-<p><strong>(1) 安装vsftpd</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps33.jpg" alt="img"></strong> </p>
-<p><strong>(2) 开启，重启vsftpd服务</strong></p>
-<p><strong>Service vsftpd start</strong></p>
-<p><strong>Service vsftpd restart</strong></p>
-<p><strong>(3) vsftpd主配置文件</strong></p>
-<p><strong>安装时会在&#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf建立著配置文件，所属用户组为root，这个配置文件主要分为全局配置、匿名用户配置、实名用户配置三个方面，#代表注释，真正起作用的是没有#的行</strong></p>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<p><strong>任务12.2 配置匿名用户模式下的FTP服务器</strong></p>
-<ol>
-<li><strong>配置匿名用户</strong></li>
-</ol>
-<p><strong>(1) 配置vsftpd.conf</strong></p>
-<p><strong>配置vsftpd.conf命令如下：</strong></p>
-<p><strong>Vim &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</strong></p>
-<p><strong>匿名用户配置：</strong></p>
-<p><strong>anoymous_enable&#x3D;YES</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps34.jpg" alt="img"></strong> </p>
-<p><strong>是否允许匿名用户登录</strong></p>
-<p><strong>anon_upload_enable&#x3D;YES</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps35.jpg" alt="img"></strong> </p>
-<p><strong>是否允许匿名用户上传文件，此功能必须建立在write_enable&#x3D;YES的基础上，如果write_enable&#x3D;NO，此功能不能实现；同时目标文件夹必须对匿名用户开放写入权限</strong></p>
-<p> <strong>anon_mkdir_write_enable&#x3D;YES</strong></p>
-<p> <strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps36.jpg" alt="img"></strong></p>
-<p><strong>是否允许匿名用户创建文件夹，此功能必须建立在write_enable&#x3D;YES上,如果write_enable&#x3D;NO，此功能不能实现；同时目标文件夹必须对匿名用户开放写入权限</strong></p>
-<hr>
-<hr>
-<p><strong>no_anon_password&#x3D;YES</strong></p>
-<p>  <strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps37.jpg" alt="img"></strong></p>
-<p><strong>匿名用户访问FTP服务器时直接登录，不再要求输入密码</strong></p>
-<p><strong>write_enable&#x3D;YES</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps38.jpg" alt="img"></strong> </p>
-<p><strong>是否授予匿名用户读写入</strong></p>
-<p><strong>(2) 创建测试目录并修改权限</strong></p>
-<p><strong>根据任务描述创建相应目录&#x2F;var&#x2F;ftp&#x2F;share，并设置好权限，命令格式如下：</strong></p>
-<p><strong>mkdir &#x2F;var&#x2F;ftp&#x2F;share</strong></p>
-<p><strong>chmod 777 &#x2F;var&#x2F;ftp&#x2F;share</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps39.jpg" alt="img"></strong> </p>
-<p><strong>任务12.3 配置实名用户模式下的FTP服务器</strong></p>
-<ol>
-<li><strong>配置实名用户</strong></li>
-</ol>
-<p><strong>Vim &#x2F;etc&#x2F;vsftpd&#x2F;vsftpd.conf</strong></p>
-<p><strong>实名用户配置</strong></p>
-<p><strong>local_enable&#x3D;YES</strong>  </p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps40.jpg" alt="img"></strong> </p>
-<p><strong>是否允许本地用户登录</strong>  </p>
-<p><strong>write_enable&#x3D;YES</strong></p>
-<p><strong>授予用户读写权限</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps41.jpg" alt="img"></strong>  </p>
-<p><strong>local_umask&#x3D;022</strong></p>
-<p><strong><img src="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps42.jpg" alt="img"></strong> </p>
-<p><strong>控制上传文件和文件夹权限</strong></p>
-<ol start="2">
-<li><strong>新建用户</strong></li>
-</ol>
-<p><strong>shell</strong></p>
-<p><strong>Useradd user_name -s &#x2F;sbin&#x2F; nologin</strong> </p>
-<ol start="3">
-<li><strong>连接ftp服务器</strong></li>
-</ol>
-<p><strong>ftp[ip&#x2F;服务器名]  注:127.0.0.1可以理解成本机IP</strong> </p>
-<p><strong>ftp [ip&#x2F;服务器名]</strong></p>
-<p><strong>FTP&gt;命令</strong></p>
-<hr>
-<p><strong>常用命令：</strong></p>
-<p><strong>user &lt;用户名&gt; [密码]  登录主机</strong></p>
-<p><strong>dir [远程目录]  显示远程计算机的目录</strong></p>
-<p><strong>pwd  显示当前路径</strong></p>
-<p><strong>cd [远程计算机上的目录]  切换目录</strong></p>
-<p><strong>rename &lt;源文件名&gt; &lt;新文件名&gt;  重命名远程文件</strong></p>
-<p><strong>rmdir &lt;目录名&gt;  删除远程目录</strong></p>
-<p><strong>mkdir &lt;目录名&gt;  创建目录名</strong> </p>
-<p><strong>delete &lt;文件名&gt;  删除文件</strong></p>
-<p><strong>get &lt;远程文件名&gt;  &lt;本地文件名&gt;  下载文件</strong></p>
-<p><strong>put &lt;本地文件名&gt; [远程文件名]  与put相同用于下载文件</strong>        </p>
-<p><strong>Bye&#x2F;quit  结束与远程计算机的FTP对话并退出</strong></p>
+        <h3 id="4月22日"><a href="#4月22日" class="headerlink" title="4月22日"></a>4月22日</h3><p>好，隔壁有人用Linux炸了两张盘，我不说是谁</p>
+<p><img src="/image-20230422182723424.png"></p>
 
       </section>
 
       
       
-        <nav class="article-nav">
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
+
       
-        <a href="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">红茶三杯（1-2）</h2>
-        </a>
       
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置与管理web服务器</h2>
-        </a>
-      
-      <div class="card-text--row">Older</div>
-    </div>
-  </article>
-</div>
-          
-        </nav>
-      
-
-      <section class="page-message-container layout-padding">
-        
-
-
-  
-  
-
-  
-  
-
-
-      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -306,8 +165,6 @@
     </div>
   </div>
 </section>
-
-      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -353,6 +210,7 @@
     </div>
   </article>
 </div>
+
 
     <!-- footer container -->
 <footer id="footer" class="footer">
