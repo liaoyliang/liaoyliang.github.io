@@ -22,7 +22,7 @@
 
   
 
-  <title>随手记 | 米奇妙妙屋</title>
+  <title>管理用户和组 | 米奇妙妙屋</title>
 
   
 
@@ -43,9 +43,9 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
+    <div class="post-image" style="background-image: url(/p1.jpg)"></div>
   
 
   <!-- navbar -->
@@ -97,38 +97,107 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap">随手记</h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">管理用户和组</h1>
+          <h2 class="title-sub-wrap">
+            <strong>liaoyl</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-04-23T10:31:52.000Z" itemprop="datePublished">2023-04-23</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h3 id="4月22日"><a href="#4月22日" class="headerlink" title="4月22日"></a>4月22日</h3><p>好，隔壁有人用Linux炸了两张盘，我不说是谁</p>
-<p><img src="/image-20230422182723424.png"></p>
+        <h3 id="5-3-3-任务1-创建本地用户账户"><a href="#5-3-3-任务1-创建本地用户账户" class="headerlink" title="5.3.3 任务1 创建本地用户账户"></a>5.3.3 任务1 创建本地用户账户</h3><p><strong>本任务在win2008独立服务器上实验(先不加入域)，以administrator身份登录计算机</strong></p>
+<p><strong>1.创建本地用户账户</strong></p>
+<p><strong>(1)执行”开始”—“管理工具”—“计算机管理”操作，打开”计算机管理”框</strong></p>
+<p><strong><img src="/2023/04/23/Windows/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E5%92%8C%E7%BB%84/image-20230423211306399.png" alt="image-20230423211306399"></strong></p>
+<p><strong>(2)在上图窗口中，展开”本地用户和组”，在”用户”目录上右键单击，选择”新用户”选项，如图所示</strong></p>
+<p><strong><img src="/2023/04/23/Windows/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E5%92%8C%E7%BB%84/image-20230423211333063.png" alt="image-20230423211333063"></strong></p>
+<p><strong>(3)设置用户名、密码等信息，包括’账户已禁用’选项等，创建完单击”关闭，返回”计算机管理框”</strong></p>
+<p><strong><img src="/2023/04/23/Windows/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E5%92%8C%E7%BB%84/image-20230423211717157.png" alt="image-20230423211717157"></strong></p>
+<p><strong>5.3.2 任务2 设置本地用户账户的属性</strong></p>
+<p><strong>用户账户不能只设置用户名和密码，还要设置用户隶属的用户组、用户配置文件、用户的拔入权限、终端用户设置等会，在”本地用户和组”，双击刚刚创建的student1用户，打开如图所示的对话框</strong></p>
+<p><strong><img src="/2023/04/23/Windows/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E5%92%8C%E7%BB%84/image-20230423212116618.png" alt="image-20230423212116618"></strong></p>
+<p><strong>1.”常规”选项卡</strong></p>
+<p><strong>上图就是”常规”选项卡，可以设置用户有关的一些描述信息，包括全名、描述、账户选项等，管理员可以设置密码或禁用账户，也可以解除绑定</strong></p>
+<p><strong>2.”隶属于”选项卡</strong></p>
+<p><strong>可以设置将该账户加入到其他本地组中，新增的用户账户默认加入user组，user组用户一般不具备一些特殊权限，如安装应用程序、修改系统设置等，将”student1”添加到管理员用户组步骤如下</strong></p>
+<p><strong>单击下图”添加”</strong></p>
+<p><strong><img src="/2023/04/23/Windows/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E5%92%8C%E7%BB%84/image-20230423213057371.png" alt="image-20230423213057371"></strong></p>
+<p><strong>在最底下对话框输入Power users,单击”检查名称”按钮，名称会变为WIN\Power Users(用户名\所属组)</strong></p>
+<p><strong><img src="/2023/04/23/Windows/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E5%92%8C%E7%BB%84/image-20230423213040858.png" alt="image-20230423213040858"></strong></p>
+<p><strong>如果不希望手动输入名称，也可单击”高级”按钮，再点击”立即查找”</strong></p>
+<p><strong>，从列表中选择一个或多个组，如下图所示</strong></p>
+<p><strong><img src="/2023/04/23/Windows/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E5%92%8C%E7%BB%84/image-20230423213412755.png" alt="image-20230423213412755"></strong></p>
+<p><strong>3.”配置文件”选项卡</strong></p>
+<p><strong>在”配置文件”可以设置用户账户的配置文件路径、登录脚本和主文件夹路径，默认用户配置文件位于”C:\user\default”下，该文件夹是隐藏文件夹，用户student1的配置文件在”C:\user\student1”下</strong></p>
+<p><strong><img src="/2023/04/23/Windows/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E5%92%8C%E7%BB%84/image-20230423214522925.png" alt="image-20230423214522925"></strong></p>
+<p><strong>4.登录脚本</strong></p>
+<p><strong>登录脚本是用户登录计算机时自动运行的脚本文件，脚本文件的拓展名可以是VBS、BAT或CMD</strong></p>
+<p><strong>其他选项卡(如拔入、远程控制选项卡)，请参考Windows server 2008的帮助文件</strong></p>
 
       </section>
 
       
       
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/04/22/Windows/%E9%83%A8%E7%BD%B2%E4%B8%8E%E7%AE%A1%E7%90%86ActiveDirectory%E5%9F%9F%E6%9C%8D%E5%8A%A1%E7%8E%AF%E5%A2%83/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">部署与管理Active Directory域服务环境</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -148,7 +217,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>16</span>
+        <span>17</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -165,6 +234,8 @@
     </div>
   </div>
 </section>
+
+      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -210,7 +281,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">
