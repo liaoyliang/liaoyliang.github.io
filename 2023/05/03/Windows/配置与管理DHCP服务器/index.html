@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 5.4.2">
+
+  
+
+  
+
+  
+    <meta name="author" content="liaoyl">
+  
+
+  
+
+  
+
+  <title>配置与管理DHCP服务器 | 米奇妙妙屋</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(/p1.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          米奇妙妙屋
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/list">目录</a></li>
+        
+          <li class="navbar-list-item"><a href="/friend">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/messages">随手记</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">配置与管理DHCP服务器</h1>
+          <h2 class="title-sub-wrap">
+            <strong>liaoyl</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-05-03T10:31:52.000Z" itemprop="datePublished">2023-05-03</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <p><strong>项目10 配置与管理DHCP服务器</strong></p>
+<p><strong>10.2 任务2 安装与基本配置DHCP服务器</strong></p>
+<p><strong>10.2.2 安装DHCP服务器角色</strong></p>
+<p><strong>1.启动“添加角色向导”</strong></p>
+<p><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps1.jpg"></p>
+<p><strong>2.单击下一步，显示如图对话框，选择“DHCP服务器”选项</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps2.jpg" alt="img"></strong></p>
+<p><strong>3.单击下一步，显示如图DHCP服务器对话框，可以查看DHCP概述和安装注意事项</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps3.jpg" alt="img"></strong></p>
+<p><strong>4.单击下一步，显示“选择网络连接绑定”对话框，选择向客户端提供服务的网络连接</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505123426464.png" alt="image-20230505123426464"></strong></p>
+<p><strong>5.单击下一步，显示“IPV4 DNS服务器设置”对话，输入父域名以及本地网络所使用的DNS服务器和IPV4地址</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505123541013.png" alt="image-20230505123541013"></strong></p>
+<p><strong>6.单击下一步，显示“IPV4 WINS 服务器设置”对话框，选择是否要使用WINS服务，保留默认值即可</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps4.jpg" alt="img"></strong></p>
+<p><strong>7.单击下一步，显示“添加或编辑DHCP”作用域对话框，可添加DHCP作用域，用来向客户端分配IP地址</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505123939989.png" alt="image-20230505123939989"></strong></p>
+<p><strong>8.单击“添加”按钮，设置该作用域名称、起始和结束IP地址、子网掩码、默认网关以及子网类型，勾选“激活此作用域”</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505124004420.png" alt="image-20230505124004420"></strong></p>
+<p><strong>9.单击“确定”，在“配置DHCPV6无状态模式”对话框中选择“对此服务器禁用DHCPV6无状态模式”，如图所示</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505124102229.png" alt="image-20230505124102229"></strong></p>
+<p><strong>10.默认凭据，下一步确认安装即可</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505124208445.png" alt="image-20230505124208445"></strong></p>
+<p><strong>11.安装完成</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505124238989.png" alt="image-20230505124238989"></strong></p>
+<p><strong>12.单击“关闭”，DHCP服务器安装完成，单击“开始”—“管理工具”—“DHCP”，打开DHCP控制台，如图所示，可以再此配置和管理DHCP服务器</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505124942695.png" alt="image-20230505124942695"></strong></p>
+<hr>
+<p><strong>10.2.3 授权DHCP服务器</strong></p>
+<p><strong>1.对域中的DHCP服务器进行授权</strong></p>
+<p><strong>安装完成后必须进行授权，才能为客户端计算机提供IP地址，独立服务器不需要授权</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505125258944.png" alt="image-20230505125258944"></strong></p>
+<p><strong>(1) 在“DHCP”控制台右键单击DHCP服务器liao26.com,选择“授权”，即可为DHCP服务器授权（若已授权则略过此步骤）</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505125113185.png" alt="image-20230505125113185"></strong></p>
+<p><strong>重新打开DHCP控制台，显示DHCP服务器已授权</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505125233567.png" alt="image-20230505125233567"></strong></p>
+<p><strong>2.为什么要授权DHCP服务器</strong></p>
+<p><strong>通过授权机制，DHCP服务器在服务于客户端之前，需要验证是否已在AD中被授权，不授权无法为客户端分配IP地址，这样就避免了由于网络中出现错误配置的DHJCP服务器而导致的大多数意外网络故障</strong></p>
+<hr>
+<p><strong>10.2.4 创建DHCP作用域（做前先删除原有作用域）</strong></p>
+<p><strong>一台DHCP服务器可以创建多个不同的作用域</strong></p>
+<p><strong>1.打开DHCP控制台，展开服务器名，选择“IPV4”，右键并选择“新建作用域”，运行新建作用域向导</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps5.jpg" alt="img"></strong> </p>
+<p><strong>2.单击下一步，显示“作用域名”对话框，在“名称”文本框中输入新的作用域的名称，用于与其他作用域相区分</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505130527097.png" alt="image-20230505130527097"></strong></p>
+<p><strong>3.单击下一步，显示如图所示的“IP地址范围”对话框，在“起始IP地址”和“结束IP地址”框中输入分配的IP地址范围（范围内不能有DHCP服务器的IP，也可通过下一步进行IP排除）</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505131330273.png" alt="image-20230505131330273"></strong></p>
+<p><strong>4.单击下一步，显示如图所示的“添加排除和延迟”，可以排除掉DHCP服务器的IP地址，本例中DHCP服务器地址为192.168.26.100</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505131422841.png" alt="image-20230505131422841"></strong></p>
+<p><strong>5.单击下一步，显示“租用期限”对话量，设置客户端租用IP地址的时间</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps6.jpg" alt="img"></strong></p>
+<p><strong>6.单击下一步，显示“配置DHCP选项”对话框，选择“是，我想现在配置这些选项”</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps7.jpg" alt="img"></strong></p>
+<p><strong>7.单击下一步，显示如图所示的“路由器（默认网关）”对话框，在“IP地址”文本框中输入要分配的网关，单击“添加”按钮添加到列表框中（本例为192.168.26.1）</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505131558417.png" alt="image-20230505131558417"></strong></p>
+<p><strong>8.单击下一步，显示“域名称和DNS服务器”对话框，在“父域”文本框中输入进行DNS解析时使用的父域，在“IP地址”文本框中输入DNS服务器的IP地址，单击“添加”到列表框中（本例为192.168.26.100）</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505131713714.png" alt="image-20230505131713714"></strong></p>
+<p><strong>9.单击下一步，显示“WINS服务器”对话框，设置WINS服务器，若网络中未配置WINS服务器，则不必设置</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505131751778.png" alt="image-20230505131751778"></strong></p>
+<ol start="10">
+<li><strong>单击下一步，选择“是，我想现在激活此作用域”</strong></li>
+</ol>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps8.jpg" alt="img"></strong></p>
+<ol start="11">
+<li><strong>单击下一步，完成新建作用域向导</strong></li>
+</ol>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps9.jpg" alt="img"></strong></p>
+<p><strong>作用域建立完成，如下图所示</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505131911208.png" alt="image-20230505131911208"></strong></p>
+<hr>
+<p><strong>10.2.5 保留特定的IP地址</strong></p>
+<p><strong>若想保留特定的IP给指定的客户机，就需要将IP地址与客户机的MAC地址绑定，步骤如下</strong></p>
+<p><strong>1.打开DHCP控制台，在左窗格中选择作用域中的“保留”项</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505133101289.png" alt="image-20230505133101289"></strong></p>
+<p><strong>2.执行“操作”—“添加”，打开“新建保留”对话框</strong></p>
+<p><strong>在“IP地址”文本框中输入要保留的IP</strong></p>
+<p><strong>在“MAC地址”文本框输入IP地址要保留给哪一个网卡</strong></p>
+<p><strong>在“保留名称”文本框中输入客户名称，此名称只是说明文字</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505133510010.png" alt="image-20230505133510010"></strong></p>
+<p><strong>添加完成后，用户可利用作用域中的“地址租用”选项进行查看</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505133822409.png" alt="image-20230505133822409"></strong></p>
+<p><strong>大部分情况下客户机使用的还是以前的IP地址，可用以下方法进行更新：</strong></p>
+<p><strong>ipconfig &#x2F;release：释放现有IP</strong></p>
+<p><strong>Ipconfig &#x2F;renew：更新IP</strong></p>
+<hr>
+<p><strong>10.2.6 配置DHCP选项</strong></p>
+<p><strong>1.打开“DHCP”对话框，在左窗格展开服务器，选择“作用域选项”，执行“操作”—“配置选项”</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505133948828.png" alt="image-20230505133948828"></strong></p>
+<p><strong>2.打开“作用域选项”对话框，如图所示，在“常规”选项卡的“可用选项”列表中，选择“006 DNS服务器”，输入IP地址，单击确定结束</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505134410330.png" alt="image-20230505134410330"></strong></p>
+<hr>
+<p><strong>10.2.7 配置超级作用域</strong></p>
+<p><strong>配置方法：</strong></p>
+<p><strong>1.在DHCP控制台右键单击DHCP服务器下的“IPV4”，选择“新建超级作用域”选项</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505134536859.png" alt="image-20230505134536859"></strong></p>
+<p><strong>打开如图的对话框，设置超级作用域名称</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505134641858.png" alt="image-20230505134641858"></strong></p>
+<p><strong>在“选择作用域”对话框中，可选择要加入超级作用域管理的作用域</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505134706859.png" alt="image-20230505134706859"></strong></p>
+<p><strong>单击下一步，完成新建超级作用域</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505134826675.png" alt="image-20230505134826675"></strong></p>
+<p><strong>2.超级作用域创建完成后会显示在DHCP控制台中</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505134844522.png" alt="image-20230505134844522"></strong></p>
+<p><strong>作用：超级作用域可以解决多网结构中的某些DHCP部署问题，比如当前作用域可用地址池已耗尽，而又要向网络添加更多计算机，可以使用另一个IP网络地址范围以拓展同一物理网段的地址空间</strong></p>
+<hr>
+<p><strong>10.2.8 配置DHCP客户端和测试</strong></p>
+<p><strong>日常使用的操作系统均可作为DHCP客户端，在windows平台中配置DHCP客户端非常简单</strong></p>
+<p><strong>1.配置DHCP客户端</strong></p>
+<p><strong>(1)在win2008-2，打开“Internet协议版本4（TCP&#x2F;IPv4）”属性对话框</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps10.jpg" alt="img"></strong> </p>
+<p><strong>(2)选中“自动获取IP地址”和“自动获取DNS服务器地址”两项即可</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/wps11.jpg" alt="img"></strong> </p>
+<p><strong>2.测试DHCP客户端</strong></p>
+<p><strong>在DHCP客户端（win2008-2）中打开命令行，通过ipconfig &#x2F;all（查看详细DHCP服务器等信息）和ping命令（查看与DHCP服务器的连通性）对DHCP客户端进行测试</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505135336282.png" alt="image-20230505135336282"></strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505135427714.png" alt="image-20230505135427714"></strong></p>
+<p><strong>3.手动释放DHCP客户端IP地址租用</strong></p>
+<p><strong>在DHCP客户端（win2008-2）进入命令行，输入ipcofig &#x2F;release命令手动释放DHCP客户端IP地址租用</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505135751634.png" alt="image-20230505135751634"></strong></p>
+<p><strong>结果：</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505140152259.png" alt="image-20230505140152259"></strong></p>
+<p><strong>4.手动更新DHCP客户端IP地址租用</strong></p>
+<p><strong>在DHCP客户端（win2008-2）进入命令行，输入ipconfig &#x2F;renew命令手动更新DHCP客户端IP地址租用</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505135948787.png" alt="image-20230505135948787"></strong></p>
+<p><strong>结果：</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505140026412.png" alt="image-20230505140026412"></strong></p>
+<p><strong>5.在DHCP服务器上验证租约</strong></p>
+<p><strong>在具有管理员权限的用户账户登录DHCP服务器，打开DHCP管理控制台，展开作用域单击“地址租约”即可查看从当前DHCP服务器的当前作用域中租用IP地址的租约</strong></p>
+<p><strong><img src="/2023/05/03/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505140316758.png" alt="image-20230505140316758"></strong></p>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">配置与管理DNS服务器</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="https://s.gravatar.com/avatar/2d6b803eea37de0257620d5fabee7e64?s=200&amp;r=g&amp;d=retro" class="soft-size--round soft-style--box" alt="Sukoshi">
+    
+    
+      <h2>Sukoshi</h2>
+    
+    
+      <p>贵在坚持</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>21</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>flex-block主题部分重构，详情查看https://github.com/miiiku/flex-block</p>
+  </div>
+</section>
+
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/miiiku/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+          <a href="https://twitter.com/guanquanhong" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2023 <a href="/" target="_blank">liaoyl</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
