@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 5.4.2">
+
+  
+
+  
+
+  
+    <meta name="author" content="liaoyl">
+  
+
+  
+
+  
+
+  <title>配置与管理DNS服务器 | 米奇妙妙屋</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(/p1.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          米奇妙妙屋
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/list">目录</a></li>
+        
+          <li class="navbar-list-item"><a href="/friend">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/messages">随手记</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">配置与管理DNS服务器</h1>
+          <h2 class="title-sub-wrap">
+            <strong>liaoyl</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-05-01T10:31:52.000Z" itemprop="datePublished">2023-05-01</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <p><strong>项目9 配置与管理DNS服务器</strong></p>
+<hr>
+<p><strong>部署环境：</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps85.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>9.2.2 安装DNS服务器角色</strong></p>
+<p><strong>在win2008-1下安装DNS服务器角色，步骤如下：</strong></p>
+<p><strong>1. 以域管理员身份登录win2008-1，选择“开始”—“管理工具”—“服务器管理器”—“角色”选项，在控制台右侧单击“添加角色”，单击下一步，勾选“DNS服务器”复选框</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps86.jpg" alt="img"></strong> </p>
+<p><strong>2. 单击下一步，显示“DNS”服务器窗口，其中简述了DNS功能和注意事项</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps87.jpg" alt="img"></strong> </p>
+<p><strong>3. 单击下一步，出现“确认安装选择”窗口，在域控制器上安装DNS服务器角色，区域将与AD域服务集成在一起</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps88.jpg" alt="img"></strong> </p>
+<p><strong>4. 单击安装，完成DNS服务器角色安装</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps89.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>9.2.3 DNS服务器的停止和启动</strong></p>
+<p><strong>1.使用net命令</strong></p>
+<p><strong>以域管理员身份登录win2008-1，进入cmd命令行，输入net stop dns停止DNS服务;net start dns开启DNS服务</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps90.jpg" alt="img"></strong> </p>
+<p><strong>2. 使用“DNS管理器”控制台</strong></p>
+<p><strong>单击“开始”—“管理工具”—“DNS”，打开DNS管理器控制台，在左侧右键单击服务器win2008-1，选择“所有任务”—“停止或启动或重新启动”，即可对DNS服务器进行控制</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps91.jpg" alt="img"></strong> </p>
+<p><strong>3. 使用“服务”控制台</strong></p>
+<p><strong>单击“开始”—“管理工具”—“服务”，打开“服务”控制台，找到“DNS Server”服务，选择“启动”或“停止”操作即可启动或停止DNS服务器</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps92.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>9.3 部署主DNS服务器的DNS区域</strong></p>
+<p><strong>在域控制器上安装完DNS服务器角色后，将存在AD域服务集成的区域，为实现以下实例，要将其删除</strong></p>
+<hr>
+<p><strong>9.3.1 创建正向主要区域</strong></p>
+<p><strong>在DNS服务器上创建正向主要区域“lyl26.com”，步骤如下</strong></p>
+<p><strong>1. 在win2008-1上，单击“开始”—“管理工具”—“DNS”，打开DNS管理器控制台，展开DNS服务器目录树，右键单击“正向查找区域”选项，选择“新建区域”</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps93.jpg" alt="img"></strong> </p>
+<ol start="2">
+<li><strong>单击下一步，出现“区域类型”窗口，用来选择要创建的区域类型，若要创建新的区域，要选中“主要区域”</strong></li>
+</ol>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps94.jpg" alt="img"></strong> </p>
+<p><strong>3. 单击下一步，选择在网络上如何复制DNS数据，本例选择如图选项</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps95.jpg" alt="img"></strong> </p>
+<p><strong>4. 单击下一步，在“区域名称”中设置要创建区域名称，如lyl26.com，区域名称用于指定DNS名称空间的部分，由此实现DNS服务器管理</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps96.jpg" alt="img"></strong> </p>
+<hr>
+<hr>
+<p><strong>5. 单击下一步，选择“只允许安全的动态更新”选项</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps97.jpg" alt="img"></strong> </p>
+<p><strong>6. 单击下一步，显示新建区域摘要，单击“完成”按钮，完成区域创建</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps98.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>9.3.2 创建反向主要区域</strong></p>
+<p><strong>反向查找区域用于通过IP地址来查询DNS名称，步骤如下：</strong></p>
+<p><strong>1. 与上文创建正向查找区域相似，右键反向查找区域，选择“新建区域”，并在类型选择“主要区域”</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps99.jpg" alt="img"></strong> </p>
+<p><strong>2. 在“反向查找区域名称”窗口中，选择IPV4反向查找区域“选项，如图所示</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps100.jpg" alt="img"></strong> </p>
+<ol start="3">
+<li><strong>单击下一步，在对话框中输入网络ID或反向查找区域名称，本例输入的是网络ID，区域名称根据网络ID自动生成，如图所示</strong></li>
+</ol>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps101.jpg" alt="img"></strong> </p>
+<p><strong>4. 单击下一步，选择“只允许安全的动态更新”选项</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps102.jpg" alt="img"></strong> </p>
+<p><strong>5. 单击下一步，显示新建区域摘要，单击完成</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps103.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>9.3.3 创建资源记录</strong></p>
+<p><strong>DNS服务器需要根据区域中的资源记录提供该区域的名称解析，因此在区域创建完成后，需要在区域中创建所需的资源记录</strong></p>
+<p><strong>1. 创建主机记录</strong></p>
+<p><strong>创建win2008-1主机记录</strong></p>
+<p><strong>(1)以域管理员身份登录win2008-1，在DNS管理控制台中，右键正向主要区域的lyl26.com，选择新建主机，如图所示</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps104.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>(2)打开“新建主机”，打开“新建主机”对话框，通过此对话框可以创建A记录，如图所示</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps105.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>2. 创建别名记录</strong></p>
+<p><strong>Win2008-2同时还是web服务器，设置别名www</strong></p>
+<p><strong>(1) 选择“新建别名”</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps106.jpg" alt="img"></strong> </p>
+<p><strong>(2) 在“别名”文本框中输入规范名称，单击浏览选择起别名的目的服务器</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps107.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>3. 创建邮件交换器记录</strong></p>
+<p><strong>(1) 选择“新建邮件交换器（MX）”</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps108.jpg" alt="img"></strong> </p>
+<p><strong>(2) <a href="mailto:在“主机或子域”中输入MX记录的名称，如果邮件地址为yy@mail.lyl26.com,则应输入mail作为MX记录的名称记录">在“主机或子域”中输入MX记录的名称，如果邮件地址为yy@mail.lyl26.com,则应输入mail作为MX记录的名称记录</a></strong></p>
+<p><strong>(3) 在“邮件服务器的完全限定的域名”文本框输入邮件服务器的名称</strong></p>
+<p><strong>(4) 如果存在两个或更多的MX记录，则在解析时将首选优先级高的MX记录</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps109.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>4. 创建指针记录</strong></p>
+<p><strong>(1) 以域管理员账户登录win2008-1，打开DNS管理控制台，选择“新建指针”</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps110.jpg" alt="img"></strong> </p>
+<p><strong>(2) 在打开的“新建资源记录”对话框的“指针（PTR）”选项卡中即可创建PTR记录</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps111.jpg" alt="img"></strong> </p>
+<p><strong>(3) 资源记录创建完后，在DNS管理控制台和区域数据库文件中都可以看到这些资源记录，如图所示</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/wps112.jpg" alt="img"></strong></p>
+<p><strong>9.4 配置DNS客户端并测试主DNS服务器</strong></p>
+<hr>
+<p><strong>9.4.1 配置DNS客户端</strong></p>
+<p><strong>可以通过手动，也可以DHCP自动配置DNS客户端（要求DNS客户端是DHCP客户端）</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230504205313183.png" alt="image-20230504205313183"></strong></p>
+<hr>
+<p><strong>9.4.2 测试DNS服务器</strong></p>
+<p><strong>以下ip变化为192.168.26.100（对应10.10.10.1），忽略即可</strong></p>
+<p><strong>1.进入nslookup测试环境</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505094625260.png" alt="image-20230505094625260"></strong></p>
+<p><strong>2，测试主机记录</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505094605469.png" alt="image-20230505094605469"></strong></p>
+<p><strong>3.测试正向解析的别名记录</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505074738594.png" alt="image-20230505074738594"></strong></p>
+<p><strong>4.测试MX记录</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505094848504.png" alt="image-20230505094848504"></strong></p>
+<p><strong>5.测试指针记录</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505094834384.png" alt="image-20230505094834384"></strong></p>
+<p><strong>6.查找区域信息</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505094940001.png" alt="image-20230505094940001"></strong></p>
+<p><strong>set type表示设置查找的类型</strong></p>
+<p><strong>set type&#x3D;mx，表示查找邮件服务器记录</strong></p>
+<p><strong>set type&#x3D;cname，表示查找别名记录</strong></p>
+<p><strong>set type&#x3D;A，表示查找主机记录</strong></p>
+<p><strong>set type&#x3D;PRT，表示查找主机记录</strong></p>
+<p><strong>set type&#x3D;ns，表示查找区域</strong></p>
+<hr>
+<p><strong>9.4.3 管理DNS客户端缓存</strong></p>
+<p><strong>进入cmd命令行</strong></p>
+<p><strong>查看DNS客户端缓存指令：</strong></p>
+<p><strong>Ipconfig &#x2F;displaydns</strong></p>
+<p><strong>清空DNS客户端缓存指令：</strong></p>
+<p><strong>Ipconfig &#x2F;flushdns</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505090850355.png" alt="image-20230505090850355"></strong></p>
+<hr>
+<p><strong>9.5.2 配置DNS转发器</strong></p>
+<p><strong>1.更改该客户端DNS服务器IP地址指向</strong></p>
+<p><strong>(1)登录win2008-2，将首选DNS服务器指向192.168.26.102（win2008-3）</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505092521331.png" alt="image-20230505092521331"></strong></p>
+<p><strong>(2)打开命令行，输入“ping win2008-2.lyl26.com”，发现命令不能解析，因为记录存在于服务器win2008-1上，不存在服务器192.168.26.102上</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505093644714.png" alt="image-20230505093644714"></strong></p>
+<p><strong>2.在惟缓存DNS服务器上安装DNS服务器并配置DNS转发器</strong></p>
+<p><strong>(1) 以管理员身份登录将要部署惟缓存DNS服务器的计算机win2008-3</strong></p>
+<p><strong>(2) 安装DNS服务</strong></p>
+<p><strong>(3) 打开DNS控制台，在左侧右键DNS服务器win2008-3，在弹出的菜单选择“属性”</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505120930340.png" alt="image-20230505120930340"></strong></p>
+<p><strong>(4) 单击“编辑”按钮，打开“编辑转发器”对话框，在“转发服务器的IP地址”选项区域中</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505121037623.png" alt="image-20230505121037623"></strong></p>
+<p><strong>添加需要转发到的DNS服务器地址为192.168.26.100，单击确定即可，该计算机能解析到相应服务器FQDN</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505121255387.png" alt="image-20230505121255387"></strong></p>
+<p><strong>(5) 采用相同方法，根据需要，配置其他区域的转发</strong></p>
+<hr>
+<p><strong>3.测试惟缓存DNS服务器</strong></p>
+<p><strong>在win2008-2打开命令行，使用nslookup命令测试惟缓存DNS服务器</strong></p>
+<p><strong><img src="/2023/05/01/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86DNS%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20230505121643843.png" alt="image-20230505121643843"></strong></p>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/04/27/Windows/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86%E5%9F%BA%E6%9C%AC%E7%A3%81%E7%9B%98%E5%92%8C%E5%8A%A8%E6%80%81%E7%A3%81%E7%9B%98/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">配置与管理基本磁盘和动态磁盘</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="https://s.gravatar.com/avatar/2d6b803eea37de0257620d5fabee7e64?s=200&amp;r=g&amp;d=retro" class="soft-size--round soft-style--box" alt="Sukoshi">
+    
+    
+      <h2>Sukoshi</h2>
+    
+    
+      <p>贵在坚持</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>20</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>flex-block主题部分重构，详情查看https://github.com/miiiku/flex-block</p>
+  </div>
+</section>
+
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/miiiku/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+          <a href="https://twitter.com/guanquanhong" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2023 <a href="/" target="_blank">liaoyl</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
