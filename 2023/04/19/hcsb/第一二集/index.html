@@ -22,7 +22,7 @@
 
   
 
-  <title>红茶三杯（1-2） | 米奇妙妙屋</title>
+  <title>红茶三杯（第一天上下午） | 米奇妙妙屋</title>
 
   
 
@@ -100,7 +100,7 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">红茶三杯（1-2）</h1>
+          <h1 class="title-wrap">红茶三杯（第一天上下午）</h1>
           <h2 class="title-sub-wrap">
             <strong>liaoyl</strong>
             <span>发布于</span>
@@ -133,23 +133,15 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <ol>
-<li><strong>网络（计算机网络）的概念</strong></li>
-</ol>
+        <p><strong>1.网络（计算机网络）的概念</strong></p>
 <p><strong>由许许多多不同的网络设备构建而成的网络</strong></p>
-<ol start="2">
-<li><strong>HUB（集线器），总线型设备，</strong></li>
-</ol>
+<p><strong>2.HUB（集线器），总线型设备，</strong></p>
 <p><strong>缺点：存在数据上通讯上冲突，存在数据交换上的瓶颈，如果总线任何一个地方出现问题，整个网络会瘫痪，如果有一个节点正在通讯，另外的节点只能等待</strong></p>
-<ol start="3">
-<li><strong>Switch（交换机）</strong></li>
-</ol>
+<p><strong>3.Switch（交换机）</strong></p>
 <p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps1.jpg" alt="img"></strong> </p>
 <p><strong>功能：作为网络终端用户的接入</strong></p>
 <p><strong>交换机每个端口都是独立的，端口和端口之间不会抢带宽（不会抢网速），不会造成冲突</strong></p>
-<ol start="4">
-<li><strong>广播、单播、组播</strong></li>
-</ol>
+<p><strong>4.广播、单播、组播</strong></p>
 <p><strong>广播：在同个广播域（网段）内都能收到广播</strong></p>
 <p><strong>广播缺点：耗费CPU等资源，造成网络带宽浪费，网络资源的损耗</strong></p>
 <p><strong>单播：点对点的传播</strong></p>
@@ -160,11 +152,6 @@
 <p><strong>收到数据包进行数据转发，维护路由条目、路由表</strong></p>
 <p><strong>广域网链路支持</strong></p>
 <p> <strong>寻址、路径选择（根据路由表）、数据转发、广播控制、流量过滤和管控、WAN连接广域网</strong></p>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
 <hr>
 <p><strong>家用路由器接口示意图：</strong></p>
 <p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps3.jpg" alt="img"></strong> </p>
@@ -216,12 +203,65 @@
 <p><strong>总结：</strong></p>
 <p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps17.jpg" alt="img"></strong> </p>
 <hr>
-<hr>
-<hr>
-<hr>
-<hr>
 <p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps18.jpg" alt="img"></strong> </p>
 <p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/wps19.jpg" alt="img"></strong> </p>
+<hr>
+<p><strong>TCP&#x2F;IP概述（协议值、协议簇）对应模型：DOD</strong></p>
+<p><strong>OSI模型和DOD模型对应关系：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230515164409792.png" alt="image-20230515164409792"></strong></p>
+<p><strong>DOD模型具体每层对应服务</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230515165122460.png" alt="image-20230515165122460"></strong></p>
+<p><strong>应用层：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230515165349013.png" alt="image-20230515165349013"></strong></p>
+<p><strong>主机到主机层</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230515165651490.png" alt="image-20230515165651490"></strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230515165828046.png" alt="image-20230515165828046"></strong></p>
+<p><strong>端口号解释：（假设为超市内某窗口，用于方便查找）</strong></p>
+<p><strong>范围：1~65535</strong></p>
+<p><strong>(1)端口号用于区分本地不同的服务或应用程序</strong></p>
+<p><strong>(2)端口号是一个逻辑号码，是一个软件端口</strong></p>
+<p><strong>(3)1024前为协商好的端口（如http、telnet）</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230515172825776.png" alt="image-20230515172825776"></strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230515172232284.png" alt="image-20230515172232284"></strong></p>
+<p><strong>用IP地址找对象，用端口号找服务</strong></p>
+<hr>
+<p><strong>TCP三次握手</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230515210835348.png" alt="image-20230515210835348"></strong></p>
+<p><strong>窗口机制</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230516211941882.png" alt="image-20230516211941882"></strong></p>
+<hr>
+<p><strong>因特网层</strong> </p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230516212222194.png" alt="image-20230516212222194"></strong></p>
+<p><strong>工作的协议：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230516212343498.png" alt="image-20230516212343498"></strong></p>
+<p><strong>ARP</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230516212639182.png" alt="image-20230516212639182"></strong></p>
+<p><strong>MAC用于LAN，IP用于WAN</strong></p>
+<hr>
+<p><strong>VLSM（可变的子网掩码）</strong></p>
+<p><strong>什么是IP地址？</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517072149886.png" alt="image-20230517072149886"></strong></p>
+<p><strong>十进制与二进制的转换公式</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517072252645.png" alt="image-20230517072252645"></strong></p>
+<p><strong>IP地址的类别（网络部分、主机部分）</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517072512502.png" alt="image-20230517072512502"></strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517072710300.png" alt="image-20230517072710300"></strong></p>
+<p><strong>路由器寻址只关心网络号，局域网内关心MAC地址</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517073839165.png" alt="image-20230517073839165"></strong></p>
+<p><strong>通信类型：</strong></p>
+<p><strong>单播</strong></p>
+<p><strong>组播</strong></p>
+<p><strong>广播</strong></p>
+<hr>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517074611170.png" alt="image-20230517074611170"></strong></p>
+<p><strong>掩码的作用：用于划分网络部分和主机部分</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517075104979.png" alt="image-20230517075104979"></strong></p>
+<p><strong>如何划分子网：</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517085927906.png" alt="image-20230517085927906"></strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517090220622.png" alt="image-20230517090220622"></strong></p>
+<hr>
+<p><strong>公网、私有地址</strong></p>
+<p><strong><img src="/2023/04/19/hcsb/%E7%AC%AC%E4%B8%80%E4%BA%8C%E9%9B%86/image-20230517095318674.png" alt="image-20230517095318674"></strong></p>
 
       </section>
 
@@ -234,8 +274,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/Windows/%E9%85%8D%E7%BD%AEws08/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置Windows server 2008 R2</h2>
+        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86web%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">配置与管理web服务器</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -249,8 +289,8 @@
     
     <div class="card-text">
       
-        <a href="/2023/04/19/linux/%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86FTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">配置与管理FTP服务器</h2>
+        <a href="/2023/04/18/linux/%E9%80%9A%E8%BF%87linux%E8%AE%BF%E9%97%AEsamba/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">通过Linux访问samba共享资源</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -292,7 +332,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>22</span>
+        <span>24</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
