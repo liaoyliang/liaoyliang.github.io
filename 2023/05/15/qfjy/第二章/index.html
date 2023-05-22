@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 5.4.2">
+
+  
+
+  
+
+  
+    <meta name="author" content="liaoyl">
+  
+
+  
+
+  
+
+  <title>第二章（Linux基本指令） | 米奇妙妙屋</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(/p1.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          米奇妙妙屋
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/list">目录</a></li>
+        
+          <li class="navbar-list-item"><a href="/friend">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/messages">随手记</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">第二章（Linux基本指令）</h1>
+          <h2 class="title-sub-wrap">
+            <strong>liaoyl</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-05-15T10:31:52.000Z" itemprop="datePublished">2023-05-15</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <p><strong>2-001</strong></p>
+<p><strong>文件和用户管理</strong></p>
+<p><strong>Linux：以单根的方式组织文件&#x2F;</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519080240999.png" alt="image-20230519080240999"></strong></p>
+<p><strong>所有文件都在&#x2F;（根目录）下</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519075732667.png" alt="image-20230519075732667"></strong></p>
+<p><strong>cd 路径（用于切换所在路径）</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519075908877.png" alt="image-20230519075908877"></strong></p>
+<p><strong>2-002</strong></p>
+<p><strong>Linux一级目录功能介绍</strong></p>
+<p><strong>home：普通用户的家目录</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519080737665.png" alt="image-20230519080737665"></strong></p>
+<p><strong>root：超级用户的家目录</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519080716511.png" alt="image-20230519080716511"></strong></p>
+<p><strong>普通用户不能访问超级用户用户的家目录root</strong> </p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519080831567.png" alt="image-20230519080831567"></strong></p>
+<p><strong>etc是配置文件目录</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519183213903.png" alt="image-20230519183213903"></strong></p>
+<p><strong>boot：装引导的目录</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519184332005.png" alt="image-20230519184332005"></strong></p>
+<p><strong>var&#x2F;log：系统日志文件</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519184729450.png" alt="image-20230519184729450"></strong></p>
+<p><strong>总结：</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230519210401790.png" alt="image-20230519210401790"></strong></p>
+<hr>
+<p><strong>2-003</strong></p>
+<p><strong>Linux文件管理命令</strong></p>
+<p><strong>命令和后面接的名字或选项都需要空格</strong></p>
+<p><strong>创建文件：</strong></p>
+<p><strong>touch 文件名字</strong></p>
+<p><strong>查看当前目录指令：ls</strong></p>
+<p> <strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230520212504563.png" alt="image-20230520212504563"></strong></p>
+<p><strong>创建目录：</strong></p>
+<p><strong>mkdir 目录名</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230520212922955.png" alt="image-20230520212922955"></strong></p>
+<p><strong>-p选项：如果其父目录不在，将一并创建</strong></p>
+<p><strong>切换目录：</strong></p>
+<p><strong>cd 目录名字</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230520213251300.png" alt="image-20230520213251300"></strong> </p>
+<p><strong>查看当前所在的路径：</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230520214640164.png" alt="image-20230520214640164"></strong></p>
+<hr>
+<p><strong>2-004</strong></p>
+<p><strong>文件移动和复制</strong></p>
+<p><strong>Tab键：补全命令</strong></p>
+<p><strong>复制文件</strong></p>
+<p><strong>cp [参数]	源文件	目标文件</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521095640146.png" alt="image-20230521095640146"></strong></p>
+<p><strong>-r：拷贝文件夹时使用</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521095913778.png" alt="image-20230521095913778"></strong></p>
+<p><strong>若未指定会出现以下情况：</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521095951606.png" alt="image-20230521095951606"></strong></p>
+<p><strong>移动文件</strong></p>
+<p><strong>mv [参数]	源文件路径	目标文件路径</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521100321951.png" alt="image-20230521100321951"></strong></p>
+<hr>
+<p><strong>2-005</strong></p>
+<p><strong>Linux从删库到跑路</strong></p>
+<p><strong>删除文件或目录命令：</strong></p>
+<p><strong>rm [参数]	文件或目录的路径</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521100807905.png" alt="image-20230521100807905"></strong></p>
+<p><strong>-r：强行删除文件或目录，不提示</strong></p>
+<p><strong>-f：将指定目录下的所有文件及子目录一并处理</strong></p>
+<p>*<strong>：所有文件、所有文字、所有目录、所有长度</strong></p>
+<p><strong>跑路指令（删除根目录下所有目录及其文件，等于删系统）：</strong></p>
+<p><strong>rm -rf &#x2F;</strong>*</p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521101406915.png" alt="image-20230521101406915"></strong></p>
+<hr>
+<p><strong>2-006</strong></p>
+<p><strong>查看文件内容</strong></p>
+<p><strong>cat [参数]	查看文件的路径</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521101735628.png" alt="image-20230521101735628"></strong></p>
+<p><strong>more翻页查看：</strong></p>
+<p><strong>more [参数]	查看文件的路径</strong></p>
+<p><strong>按回车可每次看一行</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521102025215.png" alt="image-20230521102025215"></strong></p>
+<p><strong>head查看文件头部</strong></p>
+<p><strong>head [参数]	查看文件的路径</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521102156033.png" alt="image-20230521102156033"></strong></p>
+<p><strong>-1：查看文件头部第一行</strong></p>
+<p><strong>-2：查看文件头部第一第二行</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521102349678.png" alt="image-20230521102349678"></strong></p>
+<p><strong>tail查看文件尾部</strong></p>
+<p><strong>tail [参数]	查看文件的路径</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521102452552.png" alt="image-20230521102452552"></strong></p>
+<p><strong>-1：查看文件尾部第一行</strong></p>
+<p><strong>-2：查看文件尾部第一第二行</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521102533514.png" alt="image-20230521102533514"></strong></p>
+<p><strong>grep过滤关键字：</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521102652692.png" alt="image-20230521102652692"></strong></p>
+<p><strong>vim、vi编辑文件内容：</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521102902916.png" alt="image-20230521102902916"></strong></p>
+<p><strong>进去按i即可编写内容，想退出时按键盘上的esc并打:wq即可退出保存</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521102955713.png" alt="image-20230521102955713"></strong></p>
+<hr>
+<p><strong>2-007</strong></p>
+<p><strong>vi和vim指令集</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521130246254.png" alt="image-20230521130246254"></strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521130642494.png" alt="image-20230521130642494"></strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521130947275.png" alt="image-20230521130947275"></strong></p>
+<hr>
+<p><strong>2-008</strong></p>
+<p><strong>绝对和相对路径</strong></p>
+<p><strong>切换所在路径</strong></p>
+<p><strong>cd 目录路径</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521170103629.png" alt="image-20230521170103629"></strong></p>
+<p><strong>绝对路径：cd &#x2F;root&#x2F;aaa&#x2F;bbb&#x2F;ccc&#x2F;ddd</strong></p>
+<p><strong>相对路径：..&#x2F;（上一级目录）若需要上两级则需要再打一个..&#x2F;</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521171448429.png" alt="image-20230521171448429"></strong></p>
+<hr>
+<p><strong>2-009</strong></p>
+<p><strong>文件类型和本节作业</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521181411673.png" alt="image-20230521181411673"></strong></p>
+<p><strong>文件类型</strong></p>
+<p><strong>ls -l（查看文件类型）</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521181944390.png" alt="image-20230521181944390"></strong></p>
+<p><strong>d：目录文件</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521181708821.png" alt="image-20230521181708821"></strong></p>
+<hr>
+<p><strong>2-010</strong></p>
+<p><strong>用户账户的概念</strong></p>
+<p><strong>id：查看当前用户信息</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521182110127.png" alt="image-20230521182110127"></strong></p>
+<p><strong>whoami：显示当前是什么用户登录</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521182156445.png" alt="image-20230521182156445"></strong></p>
+<p><strong>ll &#x2F;home：查看文件具体信息</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521182350337.png" alt="image-20230521182350337"></strong></p>
+<p><strong>ps aux：查看进程</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521182449528.png" alt="image-20230521182449528"></strong></p>
+<p><strong>COMMAND：进程名</strong></p>
+<hr>
+<p><strong>2-011</strong></p>
+<p><strong>passwd文件详解</strong></p>
+<p><strong>用户基本信息文件：&#x2F;etc&#x2F;passwd（该文件存储着每一个用户的账户信息）</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521182949410.png" alt="image-20230521182949410"></strong></p>
+<p><strong>内容解释：<img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521182915510.png" alt="image-20230521182915510"></strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521183336556.png" alt="image-20230521183336556"></strong></p>
+<hr>
+<p><strong>2-012</strong></p>
+<p><strong>shadow密码文件策略详解</strong></p>
+<p><strong>用户密码信息文件：&#x2F;etc&#x2F;shadow</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521214759497.png" alt="image-20230521214759497"></strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230521213909562.png" alt="image-20230521213909562"></strong></p>
+<hr>
+<p><strong>2-013</strong></p>
+<p><strong>用户管理指令</strong></p>
+<p><strong>组信息文件：&#x2F;etc&#x2F;group</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522110725505.png" alt="image-20230522110725505"></strong></p>
+<p><strong>详解：<img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522110555238.png" alt="image-20230522110555238"></strong></p>
+<p><strong>添加用户：user 用户名</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522112128994.png" alt="image-20230522112128994"></strong></p>
+<p><strong>查看别的用户信息：id 用户名</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522112446063.png" alt="image-20230522112446063"></strong></p>
+<p><strong>第一个组：默认组	第二个组：附加组</strong></p>
+<p><strong>-u：指定用户编号</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522112830380.png" alt="image-20230522112830380"></strong></p>
+<p><strong>-s：指定shell</strong></p>
+<p><strong>usermod -s &#x2F;sbin&#x2F;nologin user1（设置user1为不能登录）</strong></p>
+<p><strong>验证：</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522132930701.png" alt="image-20230522132930701"></strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522133046854.png" alt="image-20230522133046854"></strong></p>
+<p><strong>删除用户：userdel -r user1</strong></p>
+<p><strong>-r：可以理解成这个选项可以把用户删干净</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522133419646.png" alt="image-20230522133419646"></strong></p>
+<p><strong>修改用户密码：passwd 用户名</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522133640206.png" alt="image-20230522133640206"></strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522133651256.png" alt="image-20230522133651256"></strong></p>
+<hr>
+<p><strong>2-014</strong></p>
+<p><strong>用户组管理指令</strong></p>
+<p><strong>组信息：&#x2F;etc&#x2F;group</strong></p>
+<p><strong>创建组：groupadd 组名称</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522160956568.png" alt="image-20230522160956568"></strong></p>
+<p><strong>-g：指定组的UID</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522161334339.png" alt="image-20230522161334339"></strong></p>
+<p><strong>组的删除：groupdel 组名</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522161430945.png" alt="image-20230522161430945"></strong></p>
+<p><strong>将用户user2添加到z2组：usermod -aG z2 user2</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522161823156.png" alt="image-20230522161823156"></strong></p>
+<p><strong>也可以通过编辑&#x2F;etc&#x2F;group里的内容达到往组里添加用户等一系列操作</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522162838457.png" alt="image-20230522162838457"></strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522162824616.png" alt="image-20230522162824616"></strong></p>
+<p><strong>man：Linux用户手册</strong></p>
+<p><strong><img src="/2023/05/15/qfjy/%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20230522163314489.png" alt="image-20230522163314489"></strong></p>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/05/15/qfjy/Linux%E9%95%9C%E5%83%8F%E8%8E%B7%E5%8F%96/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">第一章（熟悉VMware安装虚拟机等操作）</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/05/09/Windows/%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Windows server 2008安全管理</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="https://s.gravatar.com/avatar/2d6b803eea37de0257620d5fabee7e64?s=200&amp;r=g&amp;d=retro" class="soft-size--round soft-style--box" alt="Sukoshi">
+    
+    
+      <h2>Sukoshi</h2>
+    
+    
+      <p>贵在坚持</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>25</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        0
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>flex-block主题部分重构，详情查看https://github.com/miiiku/flex-block</p>
+  </div>
+</section>
+
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/miiiku/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+          <a href="https://twitter.com/guanquanhong" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2023 <a href="/" target="_blank">liaoyl</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
