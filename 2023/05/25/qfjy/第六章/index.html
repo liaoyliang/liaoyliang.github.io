@@ -133,8 +133,123 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>6-001.磁盘的存储类型</p>
-<p>11111</p>
+        <p><strong>6-001.磁盘的存储类型</strong></p>
+<p><strong>磁盘类型：机械、固态</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230528150051829.png" alt="image-20230528150051829"></strong></p>
+<hr>
+<p><strong>6-002.磁盘的存储分区方式</strong></p>
+<p><strong>&#x2F;dev（存放设备的目录）</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230528213543111.png" alt="image-20230528213543111"></strong></p>
+<p><strong>Windows对硬盘的命名：本地磁盘</strong></p>
+<p><strong>Linux对硬盘的命名：sda、sdb</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230528213620820.png" alt="image-20230528213620820"></strong></p>
+<p><strong>Linux假设一块盘分了三个区：sda1、sda2、sda3(分别对应三个分区)</strong></p>
+<p><strong>磁盘分区类型：</strong></p>
+<p><strong>MBR</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230528214208157.png" alt="image-20230528214208157">GPT</strong></p>
+<p><strong>科普小知识：在企业中1024个t为1p</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230528214403633.png" alt="image-20230528214403633"></strong></p>
+<hr>
+<p><strong>6-003.磁盘管理操作演示-查看磁盘</strong></p>
+<p><strong>查看硬盘的方法</strong></p>
+<p><strong>第一种：ll &#x2F;dev&#x2F;sd</strong>*</p>
+<p><strong>查看设备目录下所有文件</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529131445360.png" alt="image-20230529131445360"></strong></p>
+<p><strong>b：block，代表块设备型文件</strong></p>
+<p><strong>第二种：lsblk</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529131618447.png" alt="image-20230529131618447"></strong></p>
+<p><strong>MGJ:MIN：编号</strong></p>
+<p><strong>TYPE：分区类型</strong></p>
+<hr>
+<p><strong>6-004.磁盘管理操作演示-磁盘分区</strong></p>
+<p><strong>fdisk &#x2F;dev&#x2F;硬盘名字（sda、sdb、sdc）</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529191805318.png" alt="image-20230529191805318"></strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529191828959.png" alt="image-20230529191828959"></strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529191923500.png" alt="image-20230529191923500"></strong></p>
+<p><strong>注意：记得输入w写入</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529192120234.png" alt="image-20230529192120234"></strong></p>
+<hr>
+<p><strong>6-005.磁盘管理操作演示.格式化挂载</strong></p>
+<p><strong>刷新分区表</strong></p>
+<p><strong>partprobe &#x2F;dev&#x2F;硬盘名(sda、sdb、sdc)</strong></p>
+<p><strong>列出某磁盘简要信息</strong> </p>
+<p><strong>fdisk -l &#x2F;dev&#x2F;sda</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529212512339.png" alt="image-20230529212512339"></strong></p>
+<p><strong>创建文件系统</strong></p>
+<p><strong>mkfs.ext4 &#x2F;dev&#x2F;硬盘名（创造一个管理文件或者组织文件）</strong></p>
+<p><strong>mk：make制造	f：fail文件	s：system文件系统	.：分隔符	ext4：文件系统</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529213023147.png" alt="image-20230529213023147"></strong></p>
+<p><strong>硬盘要用，就需要格式化创建文件系统</strong></p>
+<p><strong>mount：挂载</strong></p>
+<p><strong>在&#x2F;mnt（专门用于存放外置设备）创建四个目录用于挂载硬盘</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529213321096.png" alt="image-20230529213321096"></strong></p>
+<p><strong>df -Th:查看磁盘挂载信息</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230529214235542.png" alt="image-20230529214235542"></strong></p>
+<p><strong>总结：创建分区，在分区上通过mkfs.ext4 &#x2F;dev&#x2F;硬盘名创建文件系统，在&#x2F;mnt上创建挂载目录，使用mount &#x2F;dev&#x2F;硬盘名 &#x2F;mnt&#x2F;挂载目录即可挂载硬盘</strong></p>
+<hr>
+<p><strong>6-006.磁盘管理操作演示-永久挂载</strong></p>
+<p><strong>第一种方法（永久挂载）：vim &#x2F;etc&#x2F;fstab</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530072154686.png" alt="image-20230530072154686"></strong></p>
+<p><strong>刷新磁盘挂载信息（无需重启）：mount -a</strong></p>
+<p><strong>第二种方法（写入自启动文件）：vim .bashrc</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530072617812.png" alt="image-20230530072617812"></strong></p>
+<p><strong>在文件末尾添加两行使其开机自动执行指令：</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530072731068.png" alt="image-20230530072731068"></strong></p>
+<p><strong>dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;&#x2F;mnt&#x2F;disk1&#x2F;1.txt count&#x3D;200 bs&#x3D;1M</strong></p>
+<p><strong>往磁盘写入内容和&#x2F;dev&#x2F;zero内容相同的200个1M的文件</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530133127824.png" alt="image-20230530133127824"></strong></p>
+<p><strong>&#x2F;dev&#x2F;zero：全是0的草稿文件</strong></p>
+<p><strong>ls -l -h：人性化显示，自动转换单位</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530133155230.png" alt="image-20230530133155230"></strong></p>
+<hr>
+<p><strong>6-007.磁盘管理操作演示-MBR扩展分区</strong></p>
+<p><strong>如何使用MBR超过四个分区？（扩展分区）</strong></p>
+<p><strong>使用fdisk在磁盘上划分三个主分区，最后一个分区位置划分为扩展分区，在扩展分区之上创建无数个逻辑分区</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530080452287.png" alt="image-20230530080452287"></strong></p>
+<p><strong>创建完扩展分区之后，再输入n会引导我们创建逻辑分区</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530080543041.png" alt="image-20230530080543041"></strong></p>
+<p><strong>只要大小足够，可以创建无数个逻辑分区，也要在逻辑分区创建文件系统，挂载方法与主分区一样</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530080650960.png" alt="image-20230530080650960"></strong></p>
+<p><strong>给逻辑分区创建文件系统并挂载：</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530080851502.png" alt="image-20230530080851502"></strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530080840285.png" alt="image-20230530080840285"></strong></p>
+<hr>
+<p><strong>6-008.磁盘管理LVM逻辑卷管理简介</strong></p>
+<p><strong>LVM目的：管理磁盘的一种方式，性质与基本磁盘无异</strong></p>
+<p><strong>特点：随意扩展大小</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530134332974.png" alt="image-20230530134332974"></strong></p>
+<hr>
+<p><strong>6-009.磁盘管理LVM逻辑卷管理演示</strong></p>
+<p><strong>将物理磁盘转换成物理卷-PV</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530185608161.png" alt="image-20230530185608161"></strong></p>
+<p><strong>如何查看物理卷？：</strong></p>
+<p><strong>pvscan（物理卷扫描）</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530185826373.png" alt="image-20230530185826373"></strong></p>
+<p><strong>pvs</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530185844032.png" alt="image-20230530185844032"></strong></p>
+<p><strong>pvdispaly</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530185912699.png" alt="image-20230530185912699"></strong></p>
+<p><strong>创建卷组-VG</strong></p>
+<p><strong>vgcreate vg1 &#x2F;dev&#x2F;sdc</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530190345674.png" alt="image-20230530190345674"></strong></p>
+<p><strong>查看VG卷的三种方法：</strong></p>
+<p><strong>第一种，查看卷组的摘要信息：</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530190511252.png" alt="image-20230530190511252"></strong></p>
+<p><strong>第二种，扫描卷组信息：</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530190614923.png" alt="image-20230530190614923"></strong></p>
+<p><strong>第三种，显示卷组详细信息：</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530190650776.png" alt="image-20230530190650776"></strong></p>
+<p><strong>创建逻辑卷-LV</strong></p>
+<p><strong>lvcreate -L 200M -n lv1 vg1</strong></p>
+<p><strong>-L：指定卷大小	-n：名次</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530190945587.png" alt="image-20230530190945587"></strong></p>
+<p><strong>使用lvs查看逻辑卷</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530191055452.png" alt="image-20230530191055452"></strong></p>
+<p><strong>给LVM卷创建文件系统</strong></p>
+<p><strong>mkfs&#x2F;ext4 &#x2F;dev&#x2F;vg1&#x2F;lv1</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530191230158.png" alt="image-20230530191230158"></strong></p>
+<p><strong>创建挂载目录，挂载LVM卷，df查看LVM卷</strong></p>
+<p><strong><img src="/2023/05/25/qfjy/%E7%AC%AC%E5%85%AD%E7%AB%A0/image-20230530191409442.png" alt="image-20230530191409442"></strong></p>
 
       </section>
 
