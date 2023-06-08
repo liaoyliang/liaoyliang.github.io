@@ -198,8 +198,8 @@
 <p><strong>(1)准备4块硬盘（2块数据盘+1块校验盘+1块热备盘）（热备：平时不用，属于阵列组，用于监控别的盘，若别的硬盘虽坏，会把损坏的硬盘数据恢复到热备盘）</strong></p>
 <p><strong><img src="/2023/05/22/qfjy/%E7%AC%AC%E4%B8%83%E7%AB%A0/image-20230602073558766.png" alt="image-20230602073558766"></strong></p>
 <p><strong>(2)创建RAID</strong></p>
-<p><strong>maddm -C &#x2F;dev&#x2F;md0 -l5 -n3 -x1 &#x2F;dev&#x2F;sd{a,b,c,d}</strong></p>
-<p><strong>maddm：制作软RAID的重要指令</strong></p>
+<p><strong>mdadm -C &#x2F;dev&#x2F;md0 -l5 -n3 -x1 &#x2F;dev&#x2F;sd{a,b,c,d}</strong></p>
+<p><strong>mdadm：制作软RAID的重要指令</strong></p>
 <p><strong>-C ：创建RAID</strong></p>
 <p><strong>&#x2F;dev&#x2F;md0：给当前磁盘组创建的目录</strong></p>
 <p><strong>-l5：RAID5</strong></p>
